@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=manufacturer\ frequency\ no_Of_Cores
-comment0.target=Processor(java.lang.String,\ double,\ int)
+comment0.params=manufacturer\ frequency\ no_Of_Cores\ price
+comment0.target=Processor(java.lang.String,\ double,\ int,\ int)
 comment1.params=
 comment1.target=void\ display()
 comment2.params=

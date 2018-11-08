@@ -1,10 +1,11 @@
 import java.util.Scanner;
+
 public class Processor
 {
-     String s;
-     int n;
-     double f;
-    Processor(String manufacturer,double frequency,int no_Of_Cores)
+    String s;
+    int n,p;
+    double f;
+    Processor(String manufacturer,double frequency,int no_Of_Cores,int price)
     {
         s=manufacturer;
         f=frequency;
@@ -15,10 +16,19 @@ public class Processor
         System.out.println("Manufacturer:"+s);
         System.out.println("Frequency:"+f);
         System.out.println("No of cores:"+n);
+        System.out.println("Price:"+p);
+        Scanner a=new Scanner(System.in);
+        System.out.println("Press 1 to purchase it or press 0 to go back");
+        int z=a.nextInt();
+        switch(z)
+        {
+            case 0:
+            main();
+        }
     }
     public static void main()
     {
-        Processor i9800k=new Processor("Intel",5.5,8);
+        Processor i9800k=new Processor("Intel",5.5,8,90000);
         System.out.println("Processors");
         System.out.println("Press 1 to view i9800k");
         Scanner sc=new Scanner(System.in);
