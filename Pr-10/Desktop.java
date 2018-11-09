@@ -1,27 +1,33 @@
 import java.util.Scanner;
 public class Desktop
 {
-    String processor;
+    String processor,graphicCard;
     Processor pr=new Processor();
+    GraphicCard gc=new GraphicCard();
     String po;
-    Desktop(String processor)
+    Desktop(String processor,String graphicCards)
     {
         po=processor;
     }
-    Desktop de= new Desktop("");
+
     public static void main()
     {
-        Desktop d= new Desktop("");
-        d.m();
+        Desktop d= new Desktop("","");
+        d.p();
     }
 
-    public void m()
+    public void p()
     {
         pr.ma();
     }
+    
+    public void g()
+    {
+        gc.ma();
+    }
     public class Processor
     {
-        
+
         Processor()
         {
         }
@@ -36,7 +42,6 @@ public class Desktop
             n=no_Of_Cores;
             p=price;
         }
-        
 
         public void display()
         {
@@ -58,24 +63,84 @@ public class Desktop
             {
                 case 1:
                 i9800k.display();
-                System.out.println("Press 1 to purchase it or press 0 to go back");
-                int b=sc.nextInt();
-                switch(b)
-                {
-                    case 0:
-                    ma();
-                    case 1:
-                    processor=i9800k.na;
-                    exit();
-                    
-                }
+                processor=i9800k.na;
+                purchase();
             }
-           }
         }
+        
+        public void purchase()
+        {
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Press 0 to go back or press 1 to purchase it");
+            int a=sc.nextInt();
+            switch(a)
+            {
+                case 0:
+                processor="";
+                ma();
+                case 1:
+                g();
+            }
+        }
+    }
+    public class GraphicCard
+    {
+        String m,a,na;
+
+        GraphicCard()
+        {
+        }
+
+        GraphicCard(String manufacturer,String architecture,String name)
+        {
+            m=manufacturer;
+            a=architecture;
+            na=name;
+        }
+
+        public void display()
+        {
+            System.out.println("Manufacture:"+m);
+            System.out.println("Architecture:"+a);
+        }
+
+        public void ma()
+        {
+            GraphicCard GeForceRtx_2080=new GraphicCard("Nvidia","Volta","GeForce RTX 2080");
+            System.out.println("Graphic Cards");
+            System.out.println("Press 1 to view GeForce RTX 2080");
+            Scanner sc=new Scanner(System.in);
+            int c=sc.nextInt();
+            switch(c)
+            {
+                case 1:
+                GeForceRtx_2080.display();
+                graphicCard=GeForceRtx_2080.na;
+                purchase();
+            }
+        }
+        
+        public void purchase()
+        {
+            System.out.println("Press 0 to go back or press 1 to purchase it");
+            Scanner sc=new Scanner(System.in);
+            int a=sc.nextInt();
+            switch(a)
+            {
+                case 0:
+                graphicCard="";
+                ma();
+                case 1:
+                exit();
+            }
+        }
+    }
+    
     public void exit()
     {
         System.out.println("Specifications");
         System.out.println("Processor:"+processor);
+        System.out.println("Graphic Card:"+graphicCard);
     }
-    }
+}
 
