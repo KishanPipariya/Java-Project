@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ g()
 comment4.params=
 comment4.target=void\ exit()
-numComments=5
+comment5.params=s
+comment5.target=java.lang.String\ reverse(java.lang.String)
+numComments=6
