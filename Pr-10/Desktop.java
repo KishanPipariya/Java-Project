@@ -24,7 +24,10 @@ public class Desktop
 
     public static void main()
     {
+        fill();
         Desktop d= new Desktop("","");
+        spec[0][0]="Processor:";
+        spec[1][0]="Graphic Card:";
         Scanner sc=new Scanner(System.in);
         System.out.println("Press 1 to view processor section,Press 2 to view graphic cards section,Press 0 to go billing section");
         int a=sc.nextInt();
@@ -41,6 +44,18 @@ public class Desktop
             break;
             default:
             main();
+        }
+    }
+
+    public static void fill()
+    {
+        int i,j;
+        for(i=0;i<2;i++)
+        {
+            for(j=0;j<2;j++)
+            {
+                spec[i][j]=" ";
+            }
         }
     }
 
@@ -99,7 +114,6 @@ public class Desktop
                 ma();
                 case 1:
                 cost[0]=price;
-                spec[0][0]="Processor:";
                 spec[0][1]=processor;
                 main();
             }
@@ -156,7 +170,6 @@ public class Desktop
                 ma();
                 case 1:
                 cost[1]=price;
-                spec[1][0]="Graphic Card:";
                 spec[1][1]=graphicCard;
                 main();
             }
@@ -182,10 +195,11 @@ public class Desktop
         System.out.println("Graphic Card:"+graphicCard);
         dispalySpecTable();
     }
-    
+
     public void dispalySpecTable()
     {
         Desktop de=new Desktop("","");
+        System.out.println("Bill");
         int i,j,k=0,l=0,c;
         for(i=0;i<2;i++)
         {
@@ -197,29 +211,19 @@ public class Desktop
                 k=spec[i][j].length();
                 l=l+k;
             }
-            c=60-l;
-            while(c>0)
-            {
-                System.out.print(" ");
-                c--;
-            }
+            space(l);
             System.out.print(cost[i]);
             System.out.println();
         }
         de.bill();        
     }
 
-    public void bill()
+    public String rupee(int a)
     {
-        int su=0,i;
-        for(i=0;i<5;i++)
-        {
-            su=su+cost[i];
-        }
         String s1="",s2="";
         char c;
-        int l;
-        String s=Integer.toString(su);
+        int l,i;
+        String s=Integer.toString(a);
         s1=reverse(s);
         l=s1.length();
         for(i=0;i<l;i++)
@@ -241,12 +245,32 @@ public class Desktop
             }
         }
         s1=reverse(s2);
-        System.out.println("Cost:Rs"+s1);
+        return s1;
     }
 
-    public void exit()
+    public void space(int l)
     {
-        System.out.println("Thanks for shopping with us");
+        int a=60-l;
+        while(a>0)
+        {
+            System.out.print(" ");
+            a--;
+        }
+    }
+
+    public void bill()
+    {
+        int su=0,i;
+        String s1;
+        for(i=0;i<5;i++)
+        {
+            su=su+cost[i];
+        }
+        s1=rupee(su);
+        System.out.print("Total Cost:");
+        space(11);
+        System.out.print("Rs"+s1);
+        System.out.println("********Thanks for shopping with us********");
     }
 
 }
