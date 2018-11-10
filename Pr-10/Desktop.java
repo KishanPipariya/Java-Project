@@ -1,20 +1,15 @@
 import java.util.Scanner;
 public class Desktop
 {
-    String processor,graphicCard;
-    int cost[]=new int[5];
+    static String processor=" -",graphicCard=" -";
+    static int cost[]=new int[5];
+    static String spec[][]=new String[2][2];
     Processor pr=new Processor();
     GraphicCard gc=new GraphicCard();
     String po;
     Desktop(String processor,String graphicCards)
     {
         po=processor;
-    }
-
-    public static void main()
-    {
-        Desktop d= new Desktop("","");
-        d.p();
     }
 
     public void p()
@@ -26,6 +21,29 @@ public class Desktop
     {
         gc.ma();
     }
+
+    public static void main()
+    {
+        Desktop d= new Desktop("","");
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Press 1 to view processor section,Press 2 to view graphic cards section,Press 0 to go billing section");
+        int a=sc.nextInt();
+        switch(a)
+        {
+            case 0:
+            d.specs();
+            break;
+            case 1:
+            d.p();
+            break;
+            case 2:
+            d.g();
+            break;
+            default:
+            main();
+        }
+    }
+
     public class Processor
     {
         int price;
@@ -81,7 +99,9 @@ public class Desktop
                 ma();
                 case 1:
                 cost[0]=price;
-                g();
+                spec[0][0]="Processor:";
+                spec[0][1]=processor;
+                main();
             }
         }
     }
@@ -136,16 +156,62 @@ public class Desktop
                 ma();
                 case 1:
                 cost[1]=price;
-                exit();
+                spec[1][0]="Graphic Card:";
+                spec[1][1]=graphicCard;
+                main();
             }
         }
     }
-    public void exit()
+    public static String reverse(String s)
     {
-        int su=0,i;
+        int l=s.length();
+        char c;
+        String s1="";
+        for(int i=l-1;i>=0;i--)
+        {
+            c=s.charAt(i);
+            s1=s1+c;
+        }
+        return s1;
+    }
+
+    public void specs()
+    {
         System.out.println("Specifications");
         System.out.println("Processor:"+processor);
         System.out.println("Graphic Card:"+graphicCard);
+        dispalySpecTable();
+    }
+    
+    public void dispalySpecTable()
+    {
+        Desktop de=new Desktop("","");
+        int i,j,k=0,l=0,c;
+        for(i=0;i<2;i++)
+        {
+            l=0;
+            c=0;
+            for(j=0;j<2;j++)
+            {
+                System.out.print(spec[i][j]);
+                k=spec[i][j].length();
+                l=l+k;
+            }
+            c=60-l;
+            while(c>0)
+            {
+                System.out.print(" ");
+                c--;
+            }
+            System.out.print(cost[i]);
+            System.out.println();
+        }
+        de.bill();        
+    }
+
+    public void bill()
+    {
+        int su=0,i;
         for(i=0;i<5;i++)
         {
             su=su+cost[i];
@@ -178,18 +244,10 @@ public class Desktop
         System.out.println("Cost:Rs"+s1);
     }
 
-    public static String reverse(String s)
+    public void exit()
     {
-        int l=s.length();
-        char c;
-        String s1="";
-        for(int i=l-1;i>=0;i--)
-        {
-            c=s.charAt(i);
-            s1=s1+c;
-        }
-        return s1;
-      
+        System.out.println("Thanks for shopping with us");
     }
+
 }
 
