@@ -1,11 +1,12 @@
 import java.util.Scanner;
 public class Desktop
 {
-    static String processor=" -",graphicCard=" -";
+    static String processor=" -",graphicCard=" -",ram=" -";
     static int cost[]=new int[5];
-    static String spec[][]=new String[2][2];
+    static String spec[][]=new String[3][2];
     Processor pr=new Processor();
     GraphicCard gc=new GraphicCard();
+    RAM ra=new RAM();
     String po;
     Desktop(String processor,String graphicCards)
     {
@@ -21,6 +22,11 @@ public class Desktop
     {
         gc.ma();
     }
+    
+    public void r()
+    {
+        ra.ma();
+    }
 
     public static void main()
     {
@@ -28,8 +34,12 @@ public class Desktop
         Desktop d= new Desktop("","");
         spec[0][0]="Processor:";
         spec[1][0]="Graphic Card:";
+        spec[2][0]="RAM:";
         Scanner sc=new Scanner(System.in);
-        System.out.println("Press 1 to view processor section,Press 2 to view graphic cards section,Press 0 to go billing section");
+        System.out.println("Press 1 to view processor section");
+        System.out.println("Press 2 to view graphic card section");
+        System.out.println("Press 3 to view RAM section");
+        System.out.println("Press 0 to print the bill");
         int a=sc.nextInt();
         switch(a)
         {
@@ -42,6 +52,9 @@ public class Desktop
             case 2:
             d.g();
             break;
+            case 3:
+            d.r();
+            break;
             default:
             main();
         }
@@ -50,7 +63,7 @@ public class Desktop
     public static void fill()
     {
         int i,j;
-        for(i=0;i<2;i++)
+        for(i=0;i<3;i++)
         {
             for(j=0;j<2;j++)
             {
@@ -109,8 +122,7 @@ public class Desktop
             switch(a)
             {
                 case 0:
-                processor="";
-                price=0;
+                processor="-";
                 ma();
                 case 1:
                 cost[0]=price;
@@ -166,11 +178,69 @@ public class Desktop
             switch(a)
             {
                 case 0:
-                graphicCard="";
+                graphicCard="-";
                 ma();
                 case 1:
                 cost[1]=price;
                 spec[1][1]=graphicCard;
+                main();
+            }
+        }
+    }
+    public class RAM
+    {
+        String m,na,mt;
+        int c,p;
+        int price;
+        Scanner sc=new Scanner(System.in);
+        RAM()
+        {
+        }
+
+        RAM(String manufacturer,String name,int capacity,String memoryType,int Price)
+        {
+            m=manufacturer;
+            na=name;
+            c=capacity;
+            mt=memoryType;
+            p=price;
+        }
+        
+        public void display()
+        {
+            System.out.println("Manufacturer:"+m);
+            System.out.println("Cpacity:"+c+"GB");
+            System.out.println("Memory Type:"+mt);
+        }
+        
+        public void ma()
+        {
+            RAM Hyperx=new RAM("Kingston","HYPERX",8,"DDR4",5300);
+            System.out.println("RAMs");
+            System.out.println("Press 1 to view HYPERX");
+            int c=sc.nextInt();
+            switch(c)
+            {
+                case 1:
+                Hyperx.display();
+                ram=Hyperx.na;
+                price=Hyperx.p;
+                purchase();
+            }
+        }
+        
+        public void purchase()
+        {
+            System.out.println("Press 0 to go back or Press 1 to purchase it");
+            int c=sc.nextInt();
+            switch(c)
+            {
+                case 0:
+                ram="-";
+                ma();
+                case 1:
+                cost[2]=price;
+                spec[2][1]=ram;
                 main();
             }
         }
@@ -193,6 +263,7 @@ public class Desktop
         System.out.println("Specifications");
         System.out.println("Processor:"+processor);
         System.out.println("Graphic Card:"+graphicCard);
+        System.out.println("Ram:"+ram);
         dispalySpecTable();
     }
 
@@ -201,7 +272,7 @@ public class Desktop
         Desktop de=new Desktop("","");
         System.out.println("Bill");
         int i,j,k=0,l=0,c;
-        for(i=0;i<2;i++)
+        for(i=0;i<3;i++)
         {
             l=0;
             c=0;
@@ -269,7 +340,7 @@ public class Desktop
         s1=rupee(su);
         System.out.print("Total Cost:");
         space(11);
-        System.out.print("Rs"+s1);
+        System.out.println("Rs"+s1);
         System.out.println("********Thanks for shopping with us********");
     }
 
