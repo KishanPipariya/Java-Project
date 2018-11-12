@@ -22,7 +22,7 @@ public class Desktop
     {
         gc.ma();
     }
-    
+
     public void r()
     {
         ra.ma();
@@ -33,8 +33,11 @@ public class Desktop
         fill();
         Desktop d= new Desktop("","");
         spec[0][0]="Processor:";
+        spec[0][1]=processor;
         spec[1][0]="Graphic Card:";
+        spec[1][1]=graphicCard;
         spec[2][0]="RAM:";
+        spec[2][1]=ram;
         Scanner sc=new Scanner(System.in);
         System.out.println("Press 1 to view processor section");
         System.out.println("Press 2 to view graphic card section");
@@ -67,7 +70,7 @@ public class Desktop
         {
             for(j=0;j<2;j++)
             {
-                spec[i][j]=" ";
+                spec[i][j]="-";
             }
         }
     }
@@ -94,24 +97,71 @@ public class Desktop
         public void display()
         {
             System.out.println("Manufacturer:"+s);
-            System.out.println("Frequency:"+f);
+            System.out.println("Frequency:"+f+"Ghz");
             System.out.println("No of cores:"+n);
             System.out.println("Price:"+p);
         }
 
         public void ma()
         {
-            Processor i9800k=new Processor("Intel","i9800k",5.5,8,90000);
+            Processor i3_8100=new Processor("Intel","i3-8100",3.6,4,12000);
+            Processor i5_8400=new Processor("Intel","i5-8400",2.8,6,25000);
+            Processor i7_8700=new Processor("Intel","i7-8700",3.2,6,34000);
+            Processor Ryzen_3_1200=new Processor("AMD","Ryzen 3 1200",3.4,4,7000);
+            Processor Ryzen_5_1600=new Processor("AMD","Ryzen 5 1600",3.2,6,14000);
+            Processor Ryzen_7_1700=new Processor("AMD","Ryzen 7 1700",3.7,8,23000);
             System.out.println("Processors");
-            System.out.println("Press 1 to view i9800k");
+            System.out.println("Press 0 to go back to component section");
+            System.out.println("Press 1 to view i3-8100");
+            System.out.println("Press 2 to view i5-8700");
+            System.out.println("Press 3 to view i7-8700");
+            System.out.println("Press 4 to view Ryzen 3 1200");
+            System.out.println("Press 5 to view Ryzen 5 1600");
+            System.out.println("Press 6 to view Ryzen 7 1700");
             int a=sc.nextInt();
             switch(a)
             {
+                case 0:
+                main();
+                break;
                 case 1:
-                i9800k.display();
-                processor=i9800k.na;
-                price=i9800k.p;
+                i3_8100.display();
+                processor=i3_8100.na;
+                price=i3_8100.p;
                 purchase();
+                break;
+                case 2:
+                i5_8400.display();
+                processor=i5_8400.na;
+                price=i5_8400.p;
+                purchase();
+                break;
+                case 3:
+                i7_8700.display();
+                processor=i7_8700.na;
+                price=i7_8700.p;
+                purchase();
+                break;
+                case 4:
+                Ryzen_3_1200.display();
+                processor=Ryzen_3_1200.na;
+                price=Ryzen_3_1200.p;
+                purchase();
+                break;
+                case 5:
+                Ryzen_5_1600.display();
+                processor=Ryzen_5_1600.na;
+                price=Ryzen_5_1600.p;
+                purchase();
+                break;
+                case 6:
+                Ryzen_7_1700.display();
+                processor=Ryzen_7_1700.na;
+                price=Ryzen_7_1700.p;
+                purchase();
+                break;
+                default:
+                ma();
             }
         }
 
@@ -124,50 +174,96 @@ public class Desktop
                 case 0:
                 processor="-";
                 ma();
+                break;
                 case 1:
                 cost[0]=price;
-                spec[0][1]=processor;
                 main();
+                break;
             }
         }
     }
     public class GraphicCard
     {
-        String m,a,na;
-        int price,p;
+        String m,a,na,b;
+        int price,p,c;
         Scanner sc=new Scanner(System.in);
         GraphicCard()
         {
         }
 
-        GraphicCard(String manufacturer,String architecture,String name,int price)
+        GraphicCard(String brand,String manufacturer,String architecture,String name,int capacity,int price)
         {
+            b=brand;
             m=manufacturer;
             a=architecture;
             na=name;
+            c=capacity;
             p=price;
         }
 
         public void display()
         {
+            System.out.println("");
+            System.out.println("Brand:"+b);
             System.out.println("Manufacture:"+m);
             System.out.println("Architecture:"+a);
+            System.out.println("Capacity:"+c+"GB");
             System.out.println("Price"+p);
         }
 
         public void ma()
         {
-            GraphicCard GeForceRtx_2080=new GraphicCard("Nvidia","Volta","GeForce RTX 2080",86000);
+            GraphicCard GeForceGtx_950=new GraphicCard("Zotac","Nvidia","Kepler","Zotac GeForce GTX 1050",2,13000);
+            GraphicCard GeForceGtx_1050 =new GraphicCard("MSI","Nvidia","Pascal","MSI GeForce GTX 1050",4,21000);
+            GraphicCard GeForceGtx_1060=new GraphicCard("Asus","Nvidia","Pascal","Asus Strix Geforce GTX 1060",6,28000);
+            GraphicCard Radeon_RX_550=new GraphicCard("Gigabyte","AMD","GCN-4","Gigabyte Radeon RX 550",2,10000);
+            GraphicCard Radeon_RX_560=new GraphicCard("Asus","AMD","Polaris 20","ASUS Radeon RX 560",4,16300);
+            GraphicCard Radeon_RX_580=new GraphicCard("Gigabyte","AMD","","Gigabyte Radeon RX 580",8,23000);
             System.out.println("Graphic Cards");
             System.out.println("Press 1 to view GeForce RTX 2080");
             int c=sc.nextInt();
             switch(c)
             {
                 case 1:
-                GeForceRtx_2080.display();
-                graphicCard=GeForceRtx_2080.na;
-                price=GeForceRtx_2080.p;
+                GeForceGtx_950.display();
+                graphicCard=GeForceGtx_950.na;
+                price=GeForceGtx_950.p;
                 purchase();
+                break;
+                case 2:
+                GeForceGtx_1050.display();
+                graphicCard=GeForceGtx_1050.na;
+                price=GeForceGtx_1050.p;
+                purchase();
+                break;
+                case 3:
+                GeForceGtx_1060.display();
+                graphicCard= GeForceGtx_1060.na;
+                price= GeForceGtx_1060.p;
+                purchase();
+                break;
+                case 4:
+                Radeon_RX_550.display();
+                graphicCard=Radeon_RX_550.na;
+                price= Radeon_RX_550.p;
+                purchase();
+                break;
+                case 5:
+                Radeon_RX_560.display();
+                graphicCard=Radeon_RX_560.na;
+                price=Radeon_RX_560.p;
+                purchase();
+                break;
+                case 6:
+                Radeon_RX_580.display();
+                graphicCard=Radeon_RX_580.na;
+                price=Radeon_RX_580.p;
+                purchase();
+                break;
+                default:
+                System.out.println("Wrong Choice");
+                System.out.println("Plaese Try Again");
+                ma();
             }
         }
 
@@ -182,7 +278,6 @@ public class Desktop
                 ma();
                 case 1:
                 cost[1]=price;
-                spec[1][1]=graphicCard;
                 main();
             }
         }
@@ -197,7 +292,7 @@ public class Desktop
         {
         }
 
-        RAM(String manufacturer,String name,int capacity,String memoryType,int Price)
+        RAM(String manufacturer,String name,int capacity,String memoryType,int price)
         {
             m=manufacturer;
             na=name;
@@ -205,14 +300,15 @@ public class Desktop
             mt=memoryType;
             p=price;
         }
-        
+
         public void display()
         {
             System.out.println("Manufacturer:"+m);
             System.out.println("Cpacity:"+c+"GB");
             System.out.println("Memory Type:"+mt);
+            System.out.println("Price:"+p);
         }
-        
+
         public void ma()
         {
             RAM Hyperx=new RAM("Kingston","HYPERX",8,"DDR4",5300);
@@ -228,7 +324,7 @@ public class Desktop
                 purchase();
             }
         }
-        
+
         public void purchase()
         {
             System.out.println("Press 0 to go back or Press 1 to purchase it");
@@ -240,7 +336,7 @@ public class Desktop
                 ma();
                 case 1:
                 cost[2]=price;
-                spec[2][1]=ram;
+                System.out.println(ram);
                 main();
             }
         }
@@ -279,12 +375,12 @@ public class Desktop
             for(j=0;j<2;j++)
             {
                 System.out.print(spec[i][j]);
-                k=spec[i][j].length();
+                k=spec[i][j].length(); 
                 l=l+k;
             }
             space(l);
-            System.out.print(cost[i]);
-            System.out.println();
+            String s=rupee(cost[i]);
+            System.out.println("Rs"+s);
         }
         de.bill();        
     }
@@ -343,6 +439,5 @@ public class Desktop
         System.out.println("Rs"+s1);
         System.out.println("********Thanks for shopping with us********");
     }
-
 }
 
