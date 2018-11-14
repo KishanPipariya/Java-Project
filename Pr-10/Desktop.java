@@ -96,6 +96,7 @@ public class Desktop
 
         public void display()
         {
+            System.out.println("Name:"+na);
             System.out.println("Manufacturer:"+s);
             System.out.println("Frequency:"+f+"Ghz");
             System.out.println("No of cores:"+n);
@@ -203,7 +204,7 @@ public class Desktop
 
         public void display()
         {
-            System.out.println("");
+            System.out.println("Name:"+b+" "+na);
             System.out.println("Brand:"+b);
             System.out.println("Manufacture:"+m);
             System.out.println("Architecture:"+a);
@@ -213,50 +214,56 @@ public class Desktop
 
         public void ma()
         {
-            GraphicCard GeForceGtx_950=new GraphicCard("Zotac","Nvidia","Kepler","Zotac GeForce GTX 1050",2,13000);
-            GraphicCard GeForceGtx_1050 =new GraphicCard("MSI","Nvidia","Pascal","MSI GeForce GTX 1050",4,21000);
-            GraphicCard GeForceGtx_1060=new GraphicCard("Asus","Nvidia","Pascal","Asus Strix Geforce GTX 1060",6,28000);
-            GraphicCard Radeon_RX_550=new GraphicCard("Gigabyte","AMD","GCN-4","Gigabyte Radeon RX 550",2,10000);
-            GraphicCard Radeon_RX_560=new GraphicCard("Asus","AMD","Polaris 20","ASUS Radeon RX 560",4,16300);
-            GraphicCard Radeon_RX_580=new GraphicCard("Gigabyte","AMD","","Gigabyte Radeon RX 580",8,23000);
+            GraphicCard GeForceGtx_950=new GraphicCard("Zotac","Nvidia","Maxwell","GeForce GTX 950",2,13000);
+            GraphicCard GeForceGtx_1050 =new GraphicCard("MSI","Nvidia","Pascal","GeForce GTX 1050",4,21000);
+            GraphicCard GeForceGtx_1060=new GraphicCard("Asus","Nvidia","Pascal","Strix Geforce GTX 1060",6,28000);
+            GraphicCard Radeon_RX_550=new GraphicCard("Gigabyte","AMD","GCN-4","Radeon RX 550",2,10000);
+            GraphicCard Radeon_RX_560=new GraphicCard("Asus","AMD","GCN-4","Radeon RX 560",4,16300);
+            GraphicCard Radeon_RX_580=new GraphicCard("Gigabyte","AMD","GCN-4","Radeon RX 580",8,23000);
             System.out.println("Graphic Cards");
-            System.out.println("Press 1 to view GeForce RTX 2080");
+            System.out.println("Press 1 to view Zotac GeForce GTX 950");
+            System.out.println("Press 2 to view MSI GeForce GTX 1050");
+            System.out.println("Press 3 to view Asus Strix Geforce GTX 1060");
+            System.out.println("Press 4 to view Gigabyte Radeon RX 550");
+            System.out.println("Press 5 to view ASUS Radeon RX 560");
+            System.out.println("Press 6 to view Gigabyte Radeon RX 580");
+            System.out.println("");
             int c=sc.nextInt();
             switch(c)
             {
                 case 1:
                 GeForceGtx_950.display();
-                graphicCard=GeForceGtx_950.na;
+                graphicCard=GeForceGtx_950.b+" "+GeForceGtx_950.na;
                 price=GeForceGtx_950.p;
                 purchase();
                 break;
                 case 2:
                 GeForceGtx_1050.display();
-                graphicCard=GeForceGtx_1050.na;
+                graphicCard=GeForceGtx_1050.b+" "+GeForceGtx_1050.na;
                 price=GeForceGtx_1050.p;
                 purchase();
                 break;
                 case 3:
                 GeForceGtx_1060.display();
-                graphicCard= GeForceGtx_1060.na;
+                graphicCard=GeForceGtx_1060.b+" "+GeForceGtx_1060.na;
                 price= GeForceGtx_1060.p;
                 purchase();
                 break;
                 case 4:
                 Radeon_RX_550.display();
-                graphicCard=Radeon_RX_550.na;
+                graphicCard=Radeon_RX_550.b+" "+Radeon_RX_550.na;
                 price= Radeon_RX_550.p;
                 purchase();
                 break;
                 case 5:
                 Radeon_RX_560.display();
-                graphicCard=Radeon_RX_560.na;
+                graphicCard=Radeon_RX_560.b+" "+Radeon_RX_560.na;
                 price=Radeon_RX_560.p;
                 purchase();
                 break;
                 case 6:
                 Radeon_RX_580.display();
-                graphicCard=Radeon_RX_580.na;
+                graphicCard=Radeon_RX_580.b+" "+Radeon_RX_580.na;
                 price=Radeon_RX_580.p;
                 purchase();
                 break;
@@ -276,23 +283,25 @@ public class Desktop
                 case 0:
                 graphicCard="-";
                 ma();
+                break;
                 case 1:
                 cost[1]=price;
                 main();
+                break;
             }
         }
     }
     public class RAM
     {
         String m,na,mt;
-        int c,p;
+        int c,p,f;
         int price;
         Scanner sc=new Scanner(System.in);
         RAM()
         {
         }
 
-        RAM(String manufacturer,String name,int capacity,String memoryType,int price)
+        RAM(String manufacturer,String name,int capacity,String memoryType,int memorySpeed,int price)
         {
             m=manufacturer;
             na=name;
@@ -303,25 +312,63 @@ public class Desktop
 
         public void display()
         {
+            System.out.println("Name:"+m+" "+na);
             System.out.println("Manufacturer:"+m);
-            System.out.println("Cpacity:"+c+"GB");
+            System.out.println("Capacity:"+c+"GB");
             System.out.println("Memory Type:"+mt);
+            System.out.println("Frequency"+f);
             System.out.println("Price:"+p);
         }
 
         public void ma()
+        
+        
+        
         {
-            RAM Hyperx=new RAM("Kingston","HYPERX",8,"DDR4",5300);
-            System.out.println("RAMs");
-            System.out.println("Press 1 to view HYPERX");
+            RAM KVR1333D3N9=new RAM("Kingston","(KVR1333D3N9)",2,"DDR3",1333,1000);
+            RAM DLR4GD4_24=new RAM("Dolgix","(DLR4GD4-24)",4,"DDR4",2400,2800);
+            RAM Vengeance_LPX=new RAM("Corsair","Vengeance LPX (CMK8GX4M1A2400C16R)",8,"DDR4",2400,5700);
+            RAM Aegis=new RAM("G.Skill","AEGIS (F4-2400C15S-8GIS)",8,"DDR4",2133,6500);
+            RAM Ripjaws_V=new RAM("G.Skill","Ripjaws V (F4-2400C15S-16GVR)",16,"DDR4",2400,8000);
+            System.out.println("RAMs:");
+            System.out.println("Press 1 Kingston(KVR1333D3N9)");
+            System.out.println("Press 2 Dolgix (DLR4GD4-24)");
+            System.out.println("Press 3 Corsair Vengeance LPX (CMK8GX4M1A2400C16R)");
+            System.out.println("Press 4 G.Skill AEGIS (F4-2400C15S-8GIS)");
+            System.out.println("Press 5 G.Skill Ripjaws V (F4-2400C15S-16GVR)");
             int c=sc.nextInt();
             switch(c)
             {
                 case 1:
-                Hyperx.display();
-                ram=Hyperx.na;
-                price=Hyperx.p;
+                KVR1333D3N9.display();
+                ram=KVR1333D3N9.m+" "+KVR1333D3N9.na;
+                price=KVR1333D3N9.p;
                 purchase();
+                break;
+                case 2:
+                DLR4GD4_24.display();
+                ram=DLR4GD4_24.m+" "+DLR4GD4_24.na;
+                price=DLR4GD4_24.p;
+                purchase();
+                break;
+                case 3:
+                Vengeance_LPX.display();
+                ram=Vengeance_LPX.m+" "+Vengeance_LPX.na;
+                price=Vengeance_LPX.p;
+                purchase();
+                break;
+                case 4:
+                Aegis.display();
+                ram=Aegis.m+" "+Aegis.na;
+                price=Aegis.p;
+                purchase();
+                break;
+                case 5:
+                Ripjaws_V.display();
+                ram=Ripjaws_V.m+" "+Ripjaws_V.na;
+                price=Ripjaws_V.p;
+                purchase();
+                break;
             }
         }
 
@@ -334,10 +381,11 @@ public class Desktop
                 case 0:
                 ram="-";
                 ma();
+                break;
                 case 1:
                 cost[2]=price;
-                System.out.println(ram);
                 main();
+                break;
             }
         }
     }
