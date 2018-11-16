@@ -1,36 +1,41 @@
 import java.util.Scanner;
 public class Desktop
 {
-    static String processor=" -",graphicCard=" -",ram=" -";
-    static int cost[]=new int[5];
-    static String spec[][]=new String[3][2];
+    static String processor=" -",graphicCard=" -",ram=" -",socketType="",motherboard="-";
+    static int cost[]=new int[4];
+    static String spec[][]=new String[4][2];
     Processor pr=new Processor();
     GraphicCard gc=new GraphicCard();
     RAM ra=new RAM();
+    Motherboard mo=new Motherboard();
     String po;
     Desktop(String processor,String graphicCards)
     {
         po=processor;
     }
 
-    public void p()
+    public void processor()
     {
         pr.ma();
     }
 
-    public void g()
+    public void graphicCard()
     {
         gc.ma();
     }
 
-    public void r()
+    public void ram()
     {
         ra.ma();
+    }
+    
+    public void motherboard()
+    {
+        mo.ma();
     }
 
     public static void main()
     {
-        fill();
         Desktop d= new Desktop("","");
         spec[0][0]="Processor:";
         spec[0][1]=processor;
@@ -38,10 +43,13 @@ public class Desktop
         spec[1][1]=graphicCard;
         spec[2][0]="RAM:";
         spec[2][1]=ram;
+        spec[3][0]="Motherboard";
+        spec[3][1]=motherboard;
         Scanner sc=new Scanner(System.in);
         System.out.println("Press 1 to view processor section");
         System.out.println("Press 2 to view graphic card section");
         System.out.println("Press 3 to view RAM section");
+        System.out.println("Press 4 to view Motherboard section");
         System.out.println("Press 0 to print the bill");
         int a=sc.nextInt();
         switch(a)
@@ -50,28 +58,18 @@ public class Desktop
             d.specs();
             break;
             case 1:
-            d.p();
+            d.processor();
             break;
             case 2:
-            d.g();
+            d.graphicCard();
             break;
             case 3:
-            d.r();
+            d.ram();
             break;
+            case 4:
+            d.motherboard();
             default:
             main();
-        }
-    }
-
-    public static void fill()
-    {
-        int i,j;
-        for(i=0;i<3;i++)
-        {
-            for(j=0;j<2;j++)
-            {
-                spec[i][j]="-";
-            }
         }
     }
 
@@ -82,15 +80,17 @@ public class Desktop
         Processor()
         {
         }
-        String s,na;
-        int n,p;
+        String s,na,st;
+        int n,p,c;
         double f;
-        Processor(String manufacturer,String name,double frequency,int no_Of_Cores,int price)
+        Processor(String manufacturer,String name,double frequency,int noOfCores,int cache,String socketType,int price)
         {
             s=manufacturer;
             na=name;
             f=frequency;
-            n=no_Of_Cores;
+            n=noOfCores;
+            c=cache;
+            st=socketType;
             p=price;
         }
 
@@ -100,17 +100,19 @@ public class Desktop
             System.out.println("Manufacturer:"+s);
             System.out.println("Frequency:"+f+"Ghz");
             System.out.println("No of cores:"+n);
+            System.out.println("Cache:"+c+"MB");
+            System.out.println("Socket Type:"+st);
             System.out.println("Price:"+p);
         }
 
         public void ma()
         {
-            Processor i3_8100=new Processor("Intel","i3-8100",3.6,4,12000);
-            Processor i5_8400=new Processor("Intel","i5-8400",2.8,6,25000);
-            Processor i7_8700=new Processor("Intel","i7-8700",3.2,6,34000);
-            Processor Ryzen_3_1200=new Processor("AMD","Ryzen 3 1200",3.4,4,7000);
-            Processor Ryzen_5_1600=new Processor("AMD","Ryzen 5 1600",3.2,6,14000);
-            Processor Ryzen_7_1700=new Processor("AMD","Ryzen 7 1700",3.7,8,23000);
+            Processor i3_8100=new Processor("Intel","i3-8100",3.6,4,6,"LGA-1151",12000);
+            Processor i5_8400=new Processor("Intel","i5-8400",2.8,6,9,"LGA-1151",25000);
+            Processor i7_8700=new Processor("Intel","i7-8700",3.2,6,12,"LGA-1151",34000);
+            Processor Ryzen_3_1200=new Processor("AMD","Ryzen 3 1200",3.4,4,10,"AM4",7000);
+            Processor Ryzen_5_1600=new Processor("AMD","Ryzen 5 1600",3.2,6,16,"AM4",14000);
+            Processor Ryzen_7_1700=new Processor("AMD","Ryzen 7 1700",3.7,8,16,"AM4",23000);
             System.out.println("Processors");
             System.out.println("Press 0 to go back to component section");
             System.out.println("Press 1 to view i3-8100");
@@ -162,6 +164,8 @@ public class Desktop
                 purchase();
                 break;
                 default:
+                System.out.println("Wrong Choice");
+                System.out.println("Plaese Try Again");
                 ma();
             }
         }
@@ -206,7 +210,7 @@ public class Desktop
         {
             System.out.println("Name:"+b+" "+na);
             System.out.println("Brand:"+b);
-            System.out.println("Manufacture:"+m);
+            System.out.println("Chip maker:"+m);
             System.out.println("Architecture:"+a);
             System.out.println("Capacity:"+c+"GB");
             System.out.println("Price"+p);
@@ -321,17 +325,14 @@ public class Desktop
         }
 
         public void ma()
-        
-        
-        
-        {
-            RAM KVR1333D3N9=new RAM("Kingston","(KVR1333D3N9)",2,"DDR3",1333,1000);
+        {           
             RAM DLR4GD4_24=new RAM("Dolgix","(DLR4GD4-24)",4,"DDR4",2400,2800);
+            RAM Premier=new RAM("ADATA","Premier (AD4U2133W4G15-B)",4,"DDR4",2133,3300);
             RAM Vengeance_LPX=new RAM("Corsair","Vengeance LPX (CMK8GX4M1A2400C16R)",8,"DDR4",2400,5700);
             RAM Aegis=new RAM("G.Skill","AEGIS (F4-2400C15S-8GIS)",8,"DDR4",2133,6500);
             RAM Ripjaws_V=new RAM("G.Skill","Ripjaws V (F4-2400C15S-16GVR)",16,"DDR4",2400,8000);
             System.out.println("RAMs:");
-            System.out.println("Press 1 Kingston(KVR1333D3N9)");
+            System.out.println("Press 1 ADATA Premier (AD4U2133W4G15-B)");
             System.out.println("Press 2 Dolgix (DLR4GD4-24)");
             System.out.println("Press 3 Corsair Vengeance LPX (CMK8GX4M1A2400C16R)");
             System.out.println("Press 4 G.Skill AEGIS (F4-2400C15S-8GIS)");
@@ -340,9 +341,9 @@ public class Desktop
             switch(c)
             {
                 case 1:
-                KVR1333D3N9.display();
-                ram=KVR1333D3N9.m+" "+KVR1333D3N9.na;
-                price=KVR1333D3N9.p;
+                Premier.display();
+                ram=Premier.m+" "+Premier.na;
+                price=Premier.p;
                 purchase();
                 break;
                 case 2:
@@ -369,6 +370,10 @@ public class Desktop
                 price=Ripjaws_V.p;
                 purchase();
                 break;
+                default:
+                System.out.println("Wrong Choice");
+                System.out.println("Plaese Try Again");
+                ma();
             }
         }
 
@@ -384,6 +389,116 @@ public class Desktop
                 break;
                 case 1:
                 cost[2]=price;
+                main();
+                break;
+            }
+        }
+    }
+    public class Motherboard
+    {
+        String m,na,st,ch,rt,f;
+        int c,p,price;
+        Scanner sc=new Scanner(System.in);
+        Motherboard(String manufacturer,String name,String socketType,String chipset,String ramType,int capacity,String formFactor,int price)
+        {
+            m=manufacturer;
+            na=name;
+            st=socketType;
+            ch=chipset;
+            rt=ramType;
+            c=capacity;
+            f=formFactor;
+            p=price;
+        }
+        
+        Motherboard()
+        {
+        }
+        
+        public void display()
+        {
+            System.out.println("Name:"+m+" "+na);
+            System.out.println("Manufacturer:"+m);
+            System.out.println("Socket Type:"+st);
+            System.out.println("Chipset:"+ch);
+            System.out.println("RAM Type:"+rt);
+            System.out.println("Memory Capacity:"+c);
+            System.out.println("Form Factor:"+f);
+            System.out.println("Price:"+p);
+        }
+        
+        public void ma()
+        {
+            Motherboard ROG=new Motherboard("Asus","ROG STRIX Z370-F","LGA 1151","Z370","DDR4",64,"ATX",20000);
+            Motherboard B150M_D3H=new Motherboard("Gigabyte","(GA-B150M-D3H)","LGA 1151","B150","DDR4",64,"Micro-ATX",9000);
+            Motherboard PRO_VH=new Motherboard("MSI","H110M-PRO-VH PLUS","LGA 1151","H110","DDR4",32,"Micro-ATX",3500);
+            Motherboard Mortar=new Motherboard("MSI","B350 Mortar","AM4","B350","DDR4",64,"Micro-ATX",9200);
+            Motherboard Prime=new Motherboard("Asus","Prime X370-PRO","AM4","X-370","DDR4",64,"ATX",14500);
+            Motherboard GamingPro=new Motherboard("MSI","B350M Gaming Pro","AM4","B350","DDR4",32,"Micro-ATX",13000);
+            System.out.println("Press 1 to view Asus ROG STRIX Z370-F");
+            System.out.println("Press 2 to view Gigabyte (GA-B150M-D3H)");
+            System.out.println("Press 3 to view MSI H110M-PRO-VH PLUS");
+            System.out.println("Press 4 to view MSI B350 Mortar");
+            System.out.println("Press 5 to view Asus Prime X370-PRO");
+            System.out.println("Press 6 to view MSI B350M Gaming Pro");
+            int c=sc.nextInt();
+            switch(c)
+            {
+                case 1:
+                ROG.display();
+                motherboard=ROG.m+" "+ROG.na;
+                price=ROG.p;
+                purchase();
+                break;
+                case 2:
+                B150M_D3H.display();
+                motherboard=B150M_D3H.m+" "+B150M_D3H.na;
+                price=B150M_D3H.p;
+                purchase();
+                break;
+                case 3:
+                PRO_VH.display();
+                motherboard=PRO_VH.m+" "+PRO_VH.na;
+                price=PRO_VH.p;
+                purchase();
+                break;
+                case 4:
+                Mortar.display();
+                motherboard=Mortar.m+" "+Mortar.na;
+                price=Mortar.p;
+                purchase();
+                break;
+                case 5:
+                Prime.display();
+                motherboard=Prime.m+" "+Prime.na;
+                price=Prime.p;
+                purchase();
+                break;
+                case 6:
+                GamingPro.display();
+                motherboard=GamingPro.m+" "+GamingPro.na;
+                price=GamingPro.p;
+                purchase();
+                break;
+                default:
+                System.out.println("Wrong Choice");
+                System.out.println("Plaese Try Again");
+                ma();
+            }
+        }
+        
+        public void purchase()
+        {
+            System.out.println("Press 0 to go back or Press 1 to purchase it");
+            int c=sc.nextInt();
+            switch(c)
+            {
+                case 0:
+                motherboard="-";
+                ma();
+                break;
+                case 1:
+                cost[3]=price;
                 main();
                 break;
             }
@@ -408,6 +523,7 @@ public class Desktop
         System.out.println("Processor:"+processor);
         System.out.println("Graphic Card:"+graphicCard);
         System.out.println("Ram:"+ram);
+        System.out.println("Motherboard:"+motherboard);
         dispalySpecTable();
     }
 
@@ -416,7 +532,7 @@ public class Desktop
         Desktop de=new Desktop("","");
         System.out.println("Bill");
         int i,j,k=0,l=0,c;
-        for(i=0;i<3;i++)
+        for(i=0;i<4;i++)
         {
             l=0;
             c=0;
@@ -430,7 +546,7 @@ public class Desktop
             String s=rupee(cost[i]);
             System.out.println("Rs"+s);
         }
-        de.bill();        
+        bill();        
     }
 
     public String rupee(int a)
@@ -477,7 +593,7 @@ public class Desktop
     {
         int su=0,i;
         String s1;
-        for(i=0;i<5;i++)
+        for(i=0;i<4;i++)
         {
             su=su+cost[i];
         }
@@ -486,6 +602,8 @@ public class Desktop
         space(11);
         System.out.println("Rs"+s1);
         System.out.println("********Thanks for shopping with us********");
+        Controller c=new Controller();
+        c.main();
     }
 }
 

@@ -25,9 +25,6 @@ import java.util.Scanner;
             case 2:
             Dell();
             break;
-            case 3:
-            catg();
-            break;
         }
     }
     public void Alienware()
@@ -42,7 +39,7 @@ import java.util.Scanner;
             Alienware_13();
             break;
             case 2:
-            Laptop();
+            laptop();
             break;
         }
     }
@@ -79,7 +76,7 @@ import java.util.Scanner;
             Inspiron_3000();
             break;
             case 2:
-            Laptop();
+            laptop();
             break;
         }
     }
