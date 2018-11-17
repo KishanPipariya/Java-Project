@@ -43,7 +43,7 @@ public class Desktop
         spec[1][1]=graphicCard;
         spec[2][0]="RAM:";
         spec[2][1]=ram;
-        spec[3][0]="Motherboard";
+        spec[3][0]="Motherboard:";
         spec[3][1]=motherboard;
         Scanner sc=new Scanner(System.in);
         System.out.println("Press 1 to view processor section");
