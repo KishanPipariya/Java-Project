@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Desktop
 {
-    static String processor=" -",graphicCard=" -",ram=" -",socketType="",motherboard="-";
+    static String processor=" -",graphicCard=" -",ram=" -",socketTypeP="",socketTypeM="",motherboard="-";
     static int cost[]=new int[4];
     static String spec[][]=new String[4][2];
     Processor pr=new Processor();
@@ -28,7 +28,7 @@ public class Desktop
     {
         ra.ma();
     }
-    
+
     public void motherboard()
     {
         mo.ma();
@@ -131,36 +131,42 @@ public class Desktop
                 i3_8100.display();
                 processor=i3_8100.na;
                 price=i3_8100.p;
+                socketTypeP=i3_8100.st;
                 purchase();
                 break;
                 case 2:
                 i5_8400.display();
                 processor=i5_8400.na;
                 price=i5_8400.p;
+                socketTypeP=i5_8400.st;
                 purchase();
                 break;
                 case 3:
                 i7_8700.display();
                 processor=i7_8700.na;
                 price=i7_8700.p;
+                socketTypeP=i7_8700.st;
                 purchase();
                 break;
                 case 4:
                 Ryzen_3_1200.display();
                 processor=Ryzen_3_1200.na;
                 price=Ryzen_3_1200.p;
+                socketTypeP=Ryzen_3_1200.st;
                 purchase();
                 break;
                 case 5:
                 Ryzen_5_1600.display();
                 processor=Ryzen_5_1600.na;
                 price=Ryzen_5_1600.p;
+                socketTypeP=Ryzen_5_1600.st;
                 purchase();
                 break;
                 case 6:
                 Ryzen_7_1700.display();
                 processor=Ryzen_7_1700.na;
                 price=Ryzen_7_1700.p;
+                socketTypeP=Ryzen_7_1700.st;
                 purchase();
                 break;
                 default:
@@ -172,18 +178,40 @@ public class Desktop
 
         public void purchase()
         {
-            System.out.println("Press 0 to go back or press 1 to purchase it");
-            int a=sc.nextInt();
-            switch(a)
+            if(socketTypeP==socketTypeM||socketTypeM=="")
             {
-                case 0:
-                processor="-";
-                ma();
-                break;
-                case 1:
-                cost[0]=price;
-                main();
-                break;
+                System.out.println("Press 0 to go back or press 1 to purchase it");
+                int a=sc.nextInt();
+                switch(a)
+                {
+                    case 0:
+                    processor="-";
+                    ma();
+                    break;
+                    case 1:
+                    cost[0]=price;
+                    main();
+                    break;
+                    default:
+                    System.out.println("Wrong Choice");
+                    System.out.println("Plaese Try Again");
+                    purchase();
+                }
+            }
+            else
+            {
+                System.out.println("The processor you chose is not compatible with motherboard chosen by you");
+                System.out.println("Enter 1 to go back to processor section or Enter 2 to go back and change the motherboard");
+                int c=sc.nextInt();
+                switch(c)
+                {
+                    case 1:
+                    ma();
+                    break;
+                    case 2:
+                    Motherboard m=new Motherboard();
+                    m.ma();                    
+                }
             }
         }
     }
@@ -292,6 +320,10 @@ public class Desktop
                 cost[1]=price;
                 main();
                 break;
+                default:
+                System.out.println("Wrong Choice");
+                System.out.println("Plaese Try Again");
+                purchase();
             }
         }
     }
@@ -391,6 +423,10 @@ public class Desktop
                 cost[2]=price;
                 main();
                 break;
+                default:
+                System.out.println("Wrong Choice");
+                System.out.println("Plaese Try Again");
+                purchase();
             }
         }
     }
@@ -410,11 +446,11 @@ public class Desktop
             f=formFactor;
             p=price;
         }
-        
+
         Motherboard()
         {
         }
-        
+
         public void display()
         {
             System.out.println("Name:"+m+" "+na);
@@ -426,7 +462,7 @@ public class Desktop
             System.out.println("Form Factor:"+f);
             System.out.println("Price:"+p);
         }
-        
+
         public void ma()
         {
             Motherboard ROG=new Motherboard("Asus","ROG STRIX Z370-F","LGA 1151","Z370","DDR4",64,"ATX",20000);
@@ -448,36 +484,42 @@ public class Desktop
                 ROG.display();
                 motherboard=ROG.m+" "+ROG.na;
                 price=ROG.p;
+                socketTypeM=ROG.st;
                 purchase();
                 break;
                 case 2:
                 B150M_D3H.display();
                 motherboard=B150M_D3H.m+" "+B150M_D3H.na;
                 price=B150M_D3H.p;
+                socketTypeM=B150M_D3H.st;
                 purchase();
                 break;
                 case 3:
                 PRO_VH.display();
                 motherboard=PRO_VH.m+" "+PRO_VH.na;
                 price=PRO_VH.p;
+                socketTypeM=PRO_VH.st;
                 purchase();
                 break;
                 case 4:
                 Mortar.display();
                 motherboard=Mortar.m+" "+Mortar.na;
                 price=Mortar.p;
+                socketTypeM=Mortar.st;
                 purchase();
                 break;
                 case 5:
                 Prime.display();
                 motherboard=Prime.m+" "+Prime.na;
                 price=Prime.p;
+                socketTypeM=Prime.st;
                 purchase();
                 break;
                 case 6:
                 GamingPro.display();
                 motherboard=GamingPro.m+" "+GamingPro.na;
                 price=GamingPro.p;
+                socketTypeM=GamingPro.st;
                 purchase();
                 break;
                 default:
@@ -486,21 +528,48 @@ public class Desktop
                 ma();
             }
         }
-        
+
         public void purchase()
         {
-            System.out.println("Press 0 to go back or Press 1 to purchase it");
-            int c=sc.nextInt();
-            switch(c)
+            if(socketTypeM==socketTypeP||socketTypeP=="")
             {
-                case 0:
-                motherboard="-";
-                ma();
-                break;
-                case 1:
-                cost[3]=price;
-                main();
-                break;
+                System.out.println("Press 0 to go back or Press 1 to purchase it");
+                int c=sc.nextInt();
+                switch(c)
+                {
+                    case 0:
+                    motherboard="-";
+                    ma();
+                    break;
+                    case 1:
+                    cost[3]=price;
+                    main();
+                    break;
+                    default:
+                    System.out.println("Wrong Choice");
+                    System.out.println("Please Try Again");
+                    purchase();
+                }
+            }
+            else
+            {
+                System.out.println("The motherboard you chose to view is not compatible with processor chosen by you");
+                System.out.println("Enter 1 to go back to motherboard section or Enter 2 to go back and change the processor");
+                int c=sc.nextInt();
+                switch(c)
+                {
+                    case 1:
+                    ma();
+                    break;
+                    case 2:
+                    Processor p=new Processor();
+                    p.ma();  
+                    break;
+                    default:
+                    System.out.println("Wrong Choice");
+                    System.out.println("Please Try Again");
+                    purchase();
+                }
             }
         }
     }
@@ -529,20 +598,19 @@ public class Desktop
 
     public void dispalySpecTable()
     {
-        Desktop de=new Desktop("","");
         System.out.println("Bill");
-        int i,j,k=0,l=0,c;
+        Controller c=new Controller();
+        int i,j,k=0,l=0;
         for(i=0;i<4;i++)
         {
             l=0;
-            c=0;
             for(j=0;j<2;j++)
             {
                 System.out.print(spec[i][j]);
                 k=spec[i][j].length(); 
                 l=l+k;
             }
-            space(l);
+            c.space(l);
             String s=rupee(cost[i]);
             System.out.println("Rs"+s);
         }
@@ -579,18 +647,9 @@ public class Desktop
         return s1;
     }
 
-    public void space(int l)
-    {
-        int a=60-l;
-        while(a>0)
-        {
-            System.out.print(" ");
-            a--;
-        }
-    }
-
     public void bill()
     {
+        Controller c=new Controller();
         int su=0,i;
         String s1;
         for(i=0;i<4;i++)
@@ -599,10 +658,9 @@ public class Desktop
         }
         s1=rupee(su);
         System.out.print("Total Cost:");
-        space(11);
+        c.space(11);
         System.out.println("Rs"+s1);
         System.out.println("********Thanks for shopping with us********");
-        Controller c=new Controller();
         c.main();
     }
 }

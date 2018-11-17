@@ -21,4 +21,13 @@ public class Controller
             break;
         }
     }
+    public void space(int l)
+    {
+        int a=60-l;
+        while(a>0)
+        {
+            System.out.print(" ");
+            a--;
+        }
+    }
 }

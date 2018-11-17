@@ -178,42 +178,32 @@ class Laptop
 
     public void bill()
     {
+        Controller c=new Controller();
         int i,l1,l2,l3;
         String s1,s2;
         System.out.print("Name");
-        space(4);
+        c.space(4);
         System.out.print("Price per unit");
-        space(14);
+        c.space(14);
         System.out.print("Quantity");
-        space(8);
+        c.space(8);
         System.out.println("Total Cost");
         for(i=0;i<k;i++)
         {
             System.out.print(name[i]);
             l1=name[i].length();
-            space(l1);
+            c.space(l1);
             System.out.print(price[i]);
             s1=Integer.toString(price[i]);
             l2=s1.length();
-            space(l2);
+            c.space(l2);
             System.out.print(quantity[i]);
             s2=Integer.toString(quantity[i]);
             l3=s2.length();
-            space(l3);
+            c.space(l3);
             System.out.println(price[i]*quantity[i]);
         }
         System.out.println("*************Thanks for shopping with us*************");
-        Controller c=new Controller();
         c.main();
-    }
-
-    public void space(int l)
-    {
-        int a=40-l;
-        while(a>0)
-        {
-            System.out.print(" ");
-            a--;
-        }
     }
 }
