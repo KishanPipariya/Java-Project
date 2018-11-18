@@ -69,6 +69,8 @@ public class Desktop
             case 4:
             d.motherboard();
             default:
+            System.out.println("Wrong Choice");
+            System.out.println("Please Try Again");
             main();
         }
     }
@@ -209,6 +211,7 @@ public class Desktop
                     ma();
                     break;
                     case 2:
+                    cost[0]=price;
                     Motherboard m=new Motherboard();
                     m.ma();                    
                 }
@@ -465,9 +468,9 @@ public class Desktop
 
         public void ma()
         {
-            Motherboard ROG=new Motherboard("Asus","ROG STRIX Z370-F","LGA 1151","Z370","DDR4",64,"ATX",20000);
-            Motherboard B150M_D3H=new Motherboard("Gigabyte","(GA-B150M-D3H)","LGA 1151","B150","DDR4",64,"Micro-ATX",9000);
-            Motherboard PRO_VH=new Motherboard("MSI","H110M-PRO-VH PLUS","LGA 1151","H110","DDR4",32,"Micro-ATX",3500);
+            Motherboard ROG=new Motherboard("Asus","ROG STRIX Z370-F","LGA-1151","Z370","DDR4",64,"ATX",20000);
+            Motherboard B150M_D3H=new Motherboard("Gigabyte","(GA-B150M-D3H)","LGA-1151","B150","DDR4",64,"Micro-ATX",9000);
+            Motherboard PRO_VH=new Motherboard("MSI","H110M-PRO-VH PLUS","LGA-1151","H110","DDR4",32,"Micro-ATX",3500);
             Motherboard Mortar=new Motherboard("MSI","B350 Mortar","AM4","B350","DDR4",64,"Micro-ATX",9200);
             Motherboard Prime=new Motherboard("Asus","Prime X370-PRO","AM4","X-370","DDR4",64,"ATX",14500);
             Motherboard GamingPro=new Motherboard("MSI","B350M Gaming Pro","AM4","B350","DDR4",32,"Micro-ATX",13000);
@@ -562,6 +565,7 @@ public class Desktop
                     ma();
                     break;
                     case 2:
+                    cost[3]=price;
                     Processor p=new Processor();
                     p.ma();  
                     break;
@@ -572,18 +576,6 @@ public class Desktop
                 }
             }
         }
-    }
-    public static String reverse(String s)
-    {
-        int l=s.length();
-        char c;
-        String s1="";
-        for(int i=l-1;i>=0;i--)
-        {
-            c=s.charAt(i);
-            s1=s1+c;
-        }
-        return s1;
     }
 
     public void specs()
@@ -601,6 +593,9 @@ public class Desktop
         System.out.println("Bill");
         Controller c=new Controller();
         int i,j,k=0,l=0;
+        System.out.print("Component");
+        c.space(9);
+        System.out.println("Cost");
         for(i=0;i<4;i++)
         {
             l=0;
@@ -611,40 +606,10 @@ public class Desktop
                 l=l+k;
             }
             c.space(l);
-            String s=rupee(cost[i]);
+            String s=c.rupee(cost[i]);
             System.out.println("Rs"+s);
         }
         bill();        
-    }
-
-    public String rupee(int a)
-    {
-        String s1="",s2="";
-        char c;
-        int l,i;
-        String s=Integer.toString(a);
-        s1=reverse(s);
-        l=s1.length();
-        for(i=0;i<l;i++)
-        {
-            c=s1.charAt(i);
-            if((i+1)==3)
-            {
-                s2=s2+c;
-                s2=s2+",";
-            }
-            else if((i+1)%2!=0&&(i+1)<l&&(i+1>3))
-            {
-                s2=s2+c;
-                s2=s2+",";
-            }
-            else
-            {
-                s2=s2+c;
-            }
-        }
-        s1=reverse(s2);
-        return s1;
     }
 
     public void bill()
@@ -656,7 +621,7 @@ public class Desktop
         {
             su=su+cost[i];
         }
-        s1=rupee(su);
+        s1=c.rupee(su);
         System.out.print("Total Cost:");
         c.space(11);
         System.out.println("Rs"+s1);
