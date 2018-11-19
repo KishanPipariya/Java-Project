@@ -3,6 +3,7 @@ public class Controller
 {
     public static void main()
     {
+        Controller c=new Controller();
         System.out.println("Welcome to electronics");
         Scanner sc=new Scanner(System.in);
         System.out.println("Press 1 to build a PC ");
@@ -20,7 +21,7 @@ public class Controller
             la.main();
             break;
             case 0:
-            exit();
+            c.exit();
             break;
             default:
             System.out.println("Wrong Choice");
@@ -39,7 +40,7 @@ public class Controller
         }
     }
 
-    public static String reverse(String s)
+    public String reverse(String s)
     {
         int l=s.length();
         char c;
@@ -82,7 +83,7 @@ public class Controller
         return s1;
     }
 
-    public static void exit()
+    public void exit()
     {
         System.out.println("Thanks for shopping with us");
     }

@@ -1,11 +1,11 @@
 import java.util.Scanner;
 class Laptop
 {
-    static int catg,mode,var,budget,p,comp=1;;
+    static int catg,model,var,budget,p,comp=1,subSeries;
     Scanner sc=new Scanner(System.in);
-    static int price[]=new int[21474836];
-    static int quantity[]=new int[21474836];
-    static String name[]=new String[21474836];
+    static int price[]=new int[214748];
+    static int quantity[]=new int[214748];
+    static String name[]=new String[214748];
     static int k=0,q;
     public static void main()
     {
@@ -41,8 +41,8 @@ class Laptop
         System.out.println("1.Alienware");
         System.out.println("2.Inspiron");
         System.out.println("Press 0 To Exit To Laptops Section");
-        mode=sc.nextInt();
-        switch(mode)
+        model=sc.nextInt();
+        switch(model)
         {
             case 1:
             Alienware();
@@ -66,8 +66,8 @@ class Laptop
         System.out.println("2.Alienware 15");
         System.out.println("3.Alienware 17");
         System.out.println("Press 0 To Go Back To Dell Section");
-        mode=sc.nextInt();
-        switch(mode)
+        model=sc.nextInt();
+        switch(model)
         {
             case 1:
             Alienware_13();
@@ -89,31 +89,34 @@ class Laptop
     public void Alienware_13()
     {
         System.out.println("We have the following 2 variants");
-        System.out.println("            Variant 1                                                  Variant 2");
-        System.out.println("Price        Rs 75000                                                  Rs 98000"                                       );
-        System.out.println("Processor   7th Generation Intel® Core™ i5-7300HQ                      7th Generation Intel® Core™ i7-7700HQ  ");            
-        System.out.println("            (Quad-Core, 6MB Cache,up to 3.5GHz w/ Turbo Boost)         (Quad-Core, 6MB Cache, up to 3.8GHz w/ Turbo Boost)");
-        System.out.println("Memory      8GB DDR4 at 2400MHz (1x8GB)                                 8GB DDR4 at 2400MHz (1x8GB)");
-        System.out.println("Hard Drive  256GB PCIe SSD (Boot)                                       256GB PCIe SSD (Boot) ");                              
-        System.out.println("Video Card  NVIDIA® GeForce® GTX 1050Ti with 2GB GDDR5                  NVIDIA® GeForce® GTX 1060 with 6GB GDDR5 ");
+        System.out.println("             Variant 1                                            Variant 2");
+        System.out.println("Price:        Rs 75000                                            Rs 98000"                                       );
+        System.out.println("Processor:   7th Generation Intel® Core™ i5-7300HQ                7th Generation Intel® Core™ i7-7700HQ  ");            
+        System.out.println("             (Quad-Core, 6MB Cache,up to 3.5GHz w/ Turbo Boost)   (Quad-Core, 6MB Cache, up to 3.8GHz w/ Turbo Boost)");
+        System.out.println("Memory:      8GB DDR4 at 2400MHz (1x8GB)                          8GB DDR4 at 2400MHz (1x8GB)");
+        System.out.println("Hard Drive:  256GB PCIe SSD (Boot)                                256GB PCIe SSD (Boot) ");                              
+        System.out.println("Video Card:  NVIDIA® GeForce® GTX 1050Ti with 2GB GDDR5           NVIDIA® GeForce® GTX 1060 with 6GB GDDR5 ");
+        System.out.println("Display:     13.3 QHD 2560x1440 OLED Technology,                  13.3 QHD 2560x1440 OLED Technology,");
+        System.out.println("             Touch Technology with 400-nits Display               Touch Technology with 400-nits Display"); 
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
+        if(var==0)
+        {
+            Alienware();
+        }
         System.out.println("Enter the number of laptops you wish to purchase");
         q=sc.nextInt();
         switch(var)
         {
-            case 0:
-            Alienware();
-            break;
             case 1:
-            System.out.println("You purchased "+q+" Alienware 13(1) laptop each costing Rs 75000");
+            System.out.println("You purchased "+q+" Alienware 13(1) laptop each priced at Rs 75000");
             price[k]=75000;
             quantity[k]=q;
             name[k]="Alienware 13(1)";
             k++;
             break;
             case 2:
-            System.out.println("You purchased"+q+"Alienware 13(2) laptop each costing Rs 98000");
+            System.out.println("You purchased"+q+"Alienware 13(2) laptop each priced at Rs 98000");
             price[k]=98000;
             quantity[k]=q;
             name[k]="Alienware 13(2)";
@@ -131,28 +134,32 @@ class Laptop
         System.out.println("We have the folowing 2 variants");
         System.out.println("             Variant 1                                           Variant 2");
         System.out.println("Price:       Rs 93500                                            Rs 100000");
-        System.out.println("Processor:   8th Generation Intel® Core™ i5-8300H                8th Generation Intel® Core™ i7-8750H ");
-        System.out.println("             (Quad-Core, 8MB Cache, up to 4.0GHz w/ Turbo Boost) (6-Core, 9MB Cache, up to 4.1GHz w/ Turbo Boost)  ");
+        System.out.println("Processor:   8th Generation Intel® Core™ i5-8300H                8th Generation Intel® Core™ i7-8750H");
+        System.out.println("             (Quad-Core, 8MB Cache, up to 4.0GHz w/ Turbo Boost) (6-Core, 9MB Cache, up to 4.1GHz w/ Turbo Boost)");
         System.out.println("Memory:      8GB, DDR4, 2400MHz; up to 32GB                      16GB, DDR4, 2400MHz; up to 32GB  ");
         System.out.println("Hard Drive:  1TB 7200RPM HDD                                     128GB M.2 SATA SSD + 1TB 7200RPM SATA HDD");
         System.out.println("Video Card:  NVIDIA® GeForce® GTX 1060 with 6GB GDDR5            NVIDIA® GeForce® GTX 1060 with 6GB GDDR5");
+        System.out.println("Display:     15.6 FHD (1920 x 1080) 60Hz IPS Display             15.6 FHD (1920 x 1080) 60Hz IPS Display ");
+        System.out.println("                                                                 NVIDIA G-SYNC Enabled");               
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
+        if(var==0)
+        {
+            Alienware();
+        }
         System.out.println("Enter the number of laptops you wish to purchase");
         q=sc.nextInt();
         switch(var)
         {
-            case 0:
-            Alienware();
             case 1:
-            System.out.println("You purchased "+q+" Alienware 15(1) laptop each costing Rs 93500");
+            System.out.println("You purchased "+q+" Alienware 15(1) laptop each priced at Rs 93500");
             price[k]=93500;
             quantity[k]=q;
             name[k]="Alienware 15(1)";
             k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Alienware 15(2) laptop each costing Rs 100000");
+            System.out.println("You purchased "+q+" Alienware 15(2) laptop each priced at Rs 100000");
             price[k]=100000;
             quantity[k]=q;
             name[k]="Alienware 15(2)";
@@ -168,30 +175,34 @@ class Laptop
     public void Alienware_17()
     {
         System.out.println("We have the folowing 2 variants");
-        System.out.println("             Variant 1                                                  Variant 2");
-        System.out.println("Price:       Rs 104000                                                  125000");
-        System.out.println("Processor:   8th Generation Intel® Core™ i7-8750H                       8th Generation Intel® Core™ i7-8750H ");
-        System.out.println("             (6-Core, 9MB Cache, up to 4.1GHz w/ Turbo Boost)           (6-Core, 9MB Cache, up to 4.1GHz w/ Turbo Boost)");
-        System.out.println("Memory:      16GB, DDR4, 2400MHz; up to 32GB                            16GB, DDR4, 2400MHz; up to 32GB ");
-        System.out.println("Hard Drive:  128GB M.2 SATA SSD + 1TB 7200RPM SATA HDD                  256GB M.2 PCIe SSD + 1TB 7200RPM SATA HDD");
-        System.out.println("Video Card:  NVIDIA® GeForce® GTX 1060 with 6GB GDDR5                   NVIDIA® GeForce® GTX 1070 OC with 8GB GDDR5");
+        System.out.println("             Variant 1                                                 Variant 2");
+        System.out.println("Price:       Rs 104000                                                 125000");
+        System.out.println("Processor:   8th Generation Intel® Core™ i7-8750H                      8th Generation Intel® Core™ i7-8750H ");
+        System.out.println("             (6-Core, 9MB Cache, up to 4.1GHz w/ Turbo Boost)          6-Core, 9MB Cache, up to 4.1GHz w/ Turbo Boost)");
+        System.out.println("Memory:      16GB, DDR4, 2400MHz; up to 32GB                           16GB, DDR4, 2400MHz; up to 32GB ");
+        System.out.println("Hard Drive:  128GB M.2 SATA SSD + 1TB 7200RPM SATA HDD                 256GB M.2 PCIe SSD + 1TB 7200RPM SATA HDD");
+        System.out.println("Video Card:  NVIDIA® GeForce® GTX 1060 with 6GB GDDR5                  NVIDIA® GeForce® GTX 1070 OC with 8GB GDDR5");
+        System.out.println("Display:     17.3 FHD 1920x1080 60Hz                                   7.3 inch FHD (1920 x 1080) 60Hz ");
+        System.out.println("                                                                       NVIDIA G-SYNC Enabled");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
+        if(var==0)
+        {
+            Alienware();
+        }
         System.out.println("Enter the number of laptops you wish to purchase");
         q=sc.nextInt();
         switch(var)
         {
-            case 0:
-            Alienware();
             case 1:
-            System.out.println("You purchased "+q+" Alienware 17(1) laptop each costing Rs 104000");
+            System.out.println("You purchased "+q+" Alienware 17(1) laptop each priced at Rs 104000");
             price[k]=104000;
             quantity[k]=q;
             name[k]="Alienware 17(1)";
             k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Alienware 17(2) laptop each costing Rs 125000");
+            System.out.println("You purchased "+q+" Alienware 17(2) laptop each priced at Rs 125000");
             price[k]=100000;
             quantity[k]=q;
             name[k]="Alienware 17(2)";
@@ -210,11 +221,14 @@ class Laptop
         System.out.println("1.3000 series");
         System.out.println("2.5000 series");
         System.out.println("Press 0 To Go Back To Dell Section");
-        mode =sc.nextInt();
-        switch(mode)
+        subSeries=sc.nextInt();
+        switch(subSeries)
         {
             case 1:
             Inspiron_3000();
+            break;
+            case 2:
+            Inspiron_5000();
             break;
             case 0:
             Dell();
@@ -234,8 +248,8 @@ class Laptop
         System.out.println("4.Inspiron 15 3567");
         System.out.println("5.Inspiron 15 3576");
         System.out.println("Press 0 To Go Back To Inspiron Series");
-        mode=sc.nextInt();
-        switch(mode)
+        model=sc.nextInt();
+        switch(model)
         {
             case 1:
             Inspiron_15_3573();
@@ -271,23 +285,26 @@ class Laptop
         System.out.println("Memory:      4GB, DDR4, 2400MHz; up to 8GB       4GB, DDR4, 2400MHz; up to 8GB ");
         System.out.println("Hard Drive:  1TB 5400 rpm Hard Drive             1TB 5400 rpm Hard Drive");
         System.out.println("Video Card:  Intel UHD Graphics 600              Intel UHD Graphics 605");
+        System.out.println("Display:     15.6-inch HD (1366 x 768)           15.6-inch HD (1366 x 768) ");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_3000();
+        }
         System.out.println("Enter the number of laptops you wish to purchase");
         q=sc.nextInt();
         switch(var)
         {
-            case 0:
-            Inspiron_3000();
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3573(1) laptop priced Rs 24300");
+            System.out.println("You purchased "+q+" Inspiron 15 3573(1) laptop each priced at Rs 24300");
             price[k]=24300;
             quantity[k]=q;
             name[k]="Inspiron 15 3573(1)";
             k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3573(2) laptop each priced Rs 24800");
+            System.out.println("You purchased "+q+" Inspiron 15 3573(2) laptop each priced at Rs 24800");
             price[k]=24800;
             quantity[k]=q;
             name[k]="Inspiron 15 3573(2)";
@@ -310,23 +327,26 @@ class Laptop
         System.out.println("Memory:      4GB, DDR4, 2400MHz ; up to 16GB        4GB, DDR4, 2400MHz ; up to 16GB ");
         System.out.println("Hard Drive:  1TB 5400 rpm Hard Drive                1TB 5400 rpm Hard Drive");
         System.out.println("Video Card:  Integrated graphics with AMD APU       Integrated graphics with AMD APU");
+        System.out.println("Display:     15.6-inch HD (1366 x 768)              15.6-inch HD (1366 x 768) Anti-Glare");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_3000();
+        }
         System.out.println("Enter the number of laptops you wish to purchase");
         q=sc.nextInt();
         switch(var)
         {
-            case 0:
-            Inspiron_3000();
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3565(1) laptop priced Rs 23800");
+            System.out.println("You purchased "+q+" Inspiron 15 3565(1) laptop each priced at Rs 23800");
             price[k]=23800;
             quantity[k]=q;
             name[k]="Inspiron 15 3565(1)";
             k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3565(2) laptop each priced Rs 24900");
+            System.out.println("You purchased "+q+" Inspiron 15 3565(2) laptop each priced at Rs 24900");
             price[k]=24900;
             quantity[k]=q;
             name[k]="Inspiron 15 3565(2)";
@@ -348,24 +368,27 @@ class Laptop
         System.out.println("             (2M Cache, up to 2.48 GHz)         (2M Cache, up to 2.56 GHz)");
         System.out.println("Memory:      4GB Single Channel DDR3L 1600MHz   4GB Single Channel DDR3L 1600MHz");
         System.out.println("Hard Drive:  1TB 5400 rpm Hard Drive            1TB 5400 rpm Hard Drive");
-        System.out.println("Video Card:  Intel® HD Graphics 400             Intel® HD Graphics 405 with shared graphics memory");
+        System.out.println("Video Card:  Intel® HD Graphics 400             Intel® HD Graphics 405");
+        System.out.println("Display:     15.6-inch HD (1366 x 768)          15.6-inch HD (1366 x 768)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_3000();
+        }
         System.out.println("Enter the number of laptops you wish to purchase");
         q=sc.nextInt();
         switch(var)
         {
-            case 0:
-            Inspiron_3000();
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3552(1) laptop priced Rs 25200");
+            System.out.println("You purchased "+q+" Inspiron 15 3552(1) laptop each priced at Rs 25200");
             price[k]=25200;
             quantity[k]=q;
             name[k]="Inspiron 15 3552(1)";
             k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3552(2) laptop each priced Rs 26300");
+            System.out.println("You purchased "+q+" Inspiron 15 3552(2) laptop each priced at Rs 26300");
             price[k]=26300;
             quantity[k]=q;
             name[k]="Inspiron 15 3552(2)";
@@ -377,7 +400,7 @@ class Laptop
         }
         Inspiron_3000();
     }
-    
+
     public void Inspiron_15_3567()
     {
         System.out.println("We sell the following variants:");
@@ -388,23 +411,26 @@ class Laptop
         System.out.println("Memory:      4GB, 2400MHz, DDR4; up to 16GB           4GB, 2400MHz, DDR4; up to 16GB ");
         System.out.println("Hard Drive:  1TB 5400 rpm Hard Drive                  1TB 5400 rpm Hard Drive");
         System.out.println("Video Card:  Intel® HD Graphics 520                   Intel® HD Graphics 620 ");
+        System.out.println("Display:     15.6-inch FHD (1920 x1080)               15.6-inch FHD (1920 x1080)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_3000();
+        }
         System.out.println("Enter the number of laptops you wish to purchase");
         q=sc.nextInt();
         switch(var)
         {
-            case 0:
-            Inspiron_3000();
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3567(1) laptop priced Rs 33200");
+            System.out.println("You purchased "+q+" Inspiron 15 3567(1) laptop each priced at Rs 33200");
             price[k]=33200;
             quantity[k]=q;
             name[k]="Inspiron 15 3567(1)";
             k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3567(2) laptop each priced Rs 34000");
+            System.out.println("You purchased "+q+" Inspiron 15 3567(2) laptop each priced at Rs 34000");
             price[k]=34000;
             quantity[k]=q;
             name[k]="Inspiron 15 3567(2)";
@@ -427,23 +453,26 @@ class Laptop
         System.out.println("Memory:      4GB, DDR4, 2400MHz; up to 16GB            4GB, DDR4, 2400MHz; up to 16GB ");
         System.out.println("Hard Drive:  1TB 5400 rpm Hard Drive                   1TB 5400 rpm Hard Drive");
         System.out.println("Video Card:  AMD Radeon™ 520 Graphics with 2GB GDDR5   Intel® UHD Graphics 620");
+        System.out.println("Display:     15.6-inch FHD (1920 x1080)                15.6-inch FHD (1920 x1080)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_3000();
+        }
         System.out.println("Enter the number of laptops you wish to purchase");
         q=sc.nextInt();
         switch(var)
         {
-            case 0:
-            Inspiron_3000();
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3576(1) laptop priced Rs 33200");
+            System.out.println("You purchased "+q+" Inspiron 15 3576(1) laptop each priced at Rs 33200");
             price[k]=34000;
             quantity[k]=q;
             name[k]="Inspiron 15 3576(1)";
             k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3576(2) laptop each priced Rs 34000");
+            System.out.println("You purchased "+q+" Inspiron 15 3576(2) laptop each priced at Rs 34000");
             price[k]=44000;
             quantity[k]=q;
             name[k]="Inspiron 15 3576(2)";
@@ -454,6 +483,233 @@ class Laptop
             Inspiron_15_3576();
         }
         Inspiron_3000();
+    }
+
+    public void Inspiron_5000()
+    {
+        System.out.println("We possess the following models of Inspiron 5000 series:");
+        System.out.println("1.Inspiron 13 5370");
+        System.out.println("2.Inspiron 15 5570");
+        System.out.println("3.Inspiron 15 5575");
+        System.out.println("4.Inspiron 14 5480");
+        System.out.println("5.Inspiron 15 5580");
+        System.out.println("Press 0 To Go Back To Inspiron Series");
+        model=sc.nextInt();
+        switch(model)
+        {
+            case 1:
+            Inspiron_13_5370();
+            break;
+            case 2:
+            Inspiron_15_5570();
+            break;
+            case 3:
+            Inspiron_15_5575();
+            break;
+            case 4:
+            Inspiron_14_5480();
+            break;
+            case 5:
+            Inspiron_15_5580();
+            case 0:
+            Inspiron();
+            default:
+            wrongChoice();
+            Inspiron_5000();
+        }
+    }
+
+    public void Inspiron_13_5370()
+    {
+        System.out.println("We sell the following variant:");
+        System.out.println("             Inspiron 13 5370");
+        System.out.println("Price:       Rs 57400");
+        System.out.println("Processor:   8th Generation Intel® Core™ i5-8250U");
+        System.out.println("             (6MB Cache, up to 3.4 GHz)");
+        System.out.println("Memory:      8GB, DDR4, 2400MHz, up to 32GB ");
+        System.out.println("Hard Drive:  256GB Solid State Drive");
+        System.out.println("Video Card:  Intel® UHD Graphics 620");
+        System.out.println("Display:     13.3-inch FHD (1920 x 1080)");
+        System.out.println("Enter 1 to purchase the first one,Else enter 0 to go back");
+        var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_5000();
+        }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        q=sc.nextInt();
+        switch(var)
+        {
+            case 1:
+            System.out.println("You purchased "+q+" Inspiron 13 5370 laptop each priced at Rs 57400");
+            price[k]=57400;
+            quantity[k]=q;
+            name[k]="Inspiron 13 5370";
+            k++;
+            break;
+            default:
+            wrongChoice();
+            Inspiron_13_5370();
+        }
+        Inspiron_5000();
+    }
+
+    public void Inspiron_15_5570()
+    {
+        System.out.println("We sell the following variant:");
+        System.out.println("             Inspiron 15 5570");
+        System.out.println("Price:       Rs 38300");
+        System.out.println("Processor:   8th Generation Intel® Core™ i3-8130U(");
+        System.out.println("             4MB Cache, up to 3.40 GHz)");
+        System.out.println("Memory:      20GB Memory: 4GB 2400MHz DDR4 DRAM + 16GB Intel® Optane™ Memory");
+        System.out.println("Hard Drive:  1TB 5400 rpm Hard Drive");
+        System.out.println("Video Card:  Intel® HD graphics 620");
+        System.out.println("Display:     15.6-inch FHD (1920 x 1080)");
+        System.out.println("Enter 1 to purchase the first one,Else enter 0 to go back");
+        var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_5000();
+        }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        q=sc.nextInt();
+        switch(var)
+        {
+            case 1:
+            System.out.println("You purchased "+q+" Inspiron 15 5570 laptop each priced at Rs 38300");
+            price[k]=38300;
+            quantity[k]=q;
+            name[k]="Inspiron 15 5570";
+            k++;
+            break;
+            default:
+            wrongChoice();
+            Inspiron_15_5570();
+        }
+        Inspiron_5000();
+    }
+    
+    public void Inspiron_15_5575()
+    {
+        System.out.println("We sell the following variants:");
+        System.out.println("             Inspiron 15 5575(1)               Inspiron 15 5575(2)");
+        System.out.println("Price:       Rs 36900                          Rs 37400");
+        System.out.println("Processor:   AMD Ryzen™ 3 2200U                AMD Ryzen™ 3 2200U");
+        System.out.println("             with Radeon™ Vega3 Graphics       with Radeon™ Vega3 Graphics");
+        System.out.println("Memory:      4GB, DDR4, 2400MHz, up to 32GB    4GB, DDR4, 2400MHz, up to 32GB");
+        System.out.println("Hard Drive:  1TB 5400 rpm Hard Drive           1TB 5400 rpm Hard Drive");
+        System.out.println("Video Card:  Integrated graphics with AMD APU  Integrated graphics with AMD APU");
+        System.out.println("Display:     15.6-inch HD (1366 x 768)         15.6-inch FHD (1920 x 1080)");
+        System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
+        var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_5000();
+        }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        q=sc.nextInt();
+        switch(var)
+        {
+            case 1:
+            System.out.println("You purchased "+q+" Inspiron 15 5575(1) laptop each priced at Rs 36900");
+            price[k]=36900;
+            quantity[k]=q;
+            name[k]="Inspiron 15 5575(1)";
+            k++;
+            break;
+            case 2:
+            System.out.println("You purchased "+q+" Inspiron 15 5575(2) laptop each priced at Rs 37400");
+            price[k]=37400;
+            quantity[k]=q;
+            name[k]="Inspiron 15 5575(2)";
+            k++;
+            break;
+            default:
+            wrongChoice();
+            Inspiron_15_5575();
+        }
+    }
+    
+    public void Inspiron_14_5480()
+    {
+        System.out.println("We sell the following variants:");
+        System.out.println("             Inspiron 14 5480(1)                    Inspiron 14 5480(2)");
+        System.out.println("Price:       Rs 37000                               Rs 50000");
+        System.out.println("Processor:   8th Generation Intel® Core™ i3-8145U   8th Generation Intel® Core™ i5-8265U");
+        System.out.println("             (4MB Cache, up to 3.9 GHz)             (6MB Cache, up to 3.9 GHz)");
+        System.out.println("Memory:      4GB 4GBx1 DDR4 2666MHz                 8GB, 2x4GB, DDR4, 2666MHz");
+        System.out.println("Hard Drive:  1TB 5400 rpm 2.5 SATA Hard Drive       1TB 5400 rpm 2.5 SATA Hard Drive");
+        System.out.println("Video Card:  Intel® UHD Graphics 620                Intel® UHD Graphics 620");
+        System.out.println("Display:     14.0-inch FHD (1920 x 1080)            14.0-inch FHD (1920 x 1080)");
+        System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
+        var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_5000();
+        }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        q=sc.nextInt();
+        switch(var)
+        {
+            case 1:
+            System.out.println("You purchased "+q+" Inspiron 14 5480(1) laptop each priced at Rs 37000");
+            price[k]=37000;
+            quantity[k]=q;
+            name[k]="Inspiron 14 5480(1)";
+            k++;
+            break;
+            case 2:
+            System.out.println("You purchased "+q+" Inspiron 14 5480(2) laptop each priced at Rs 50000");
+            price[k]=50000;
+            quantity[k]=q;
+            name[k]="Inspiron 14 5480(2)";
+            k++;
+            break;
+            default:
+            wrongChoice();
+            Inspiron_14_5480();
+        }
+    }
+    
+    public void Inspiron_15_5580()
+    {
+        System.out.println("We sell the following variants:");
+        System.out.println("             Inspiron 15 5580(1)                    Inspiron 15 5580(2)");
+        System.out.println("Price:       Rs 38000                               Rs 55000");
+        System.out.println("Processor:   8th Generation Intel® Core™ i3-8145U   8th Generation Intel® Core™ i5-8265U ");
+        System.out.println("             (4MB Cache, up to 3.9 GHz)             (6MB Cache, up to 3.9 GHz)");
+        System.out.println("Memory:      4GB 4GBx1 DDR4 2666MHz                 8GB 8Gx1 DDR4, 2666MHz");
+        System.out.println("Hard Drive:  1TB 5400 rpm 2.5 SATA Hard Drive       2TB 5400 rpm 2.5 SATA Hard Drive");
+        System.out.println("Video Card:  Intel® UHD Graphics 620                Intel® UHD Graphics 620");
+        System.out.println("Display:     15.6-inch FHD (1920 x 1080)            15.6-inch FHD (1920 x 1080) ");
+        System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
+        var=sc.nextInt();
+        if(var==0)
+        {
+            Inspiron_5000();
+        }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        q=sc.nextInt();
+        switch(var)
+        {
+            case 1:
+            System.out.println("You purchased "+q+" Inspiron 15 5580(1) laptop each priced at Rs 38000");
+            price[k]=38000;
+            quantity[k]=q;
+            name[k]="Inspiron 15 5580(1)";
+            k++;
+            break;
+            case 2:
+            System.out.println("You purchased "+q+" Inspiron 14 5580(2) laptop each priced at Rs 55000");
+            price[k]=55000;
+            quantity[k]=q;
+            name[k]="Inspiron 14 5580(2)";
+            k++;
+            break;
+            default:
+            wrongChoice();
+            Inspiron_15_5580();
+        }
     }
     
     public void bill()
@@ -485,7 +741,7 @@ class Laptop
             tc=tc+(price[i]*quantity[i]);
         }
         System.out.print("Total Cost:");
-        c.space(10);
+        c.space(11);
         System.out.println(c.rupee(tc));
         System.out.println("*************Thanks for shopping with us*************");
         c.main();
