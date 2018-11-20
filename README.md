@@ -1,2 +1,2 @@
 # Java-Project-10
-Trial
+The project is ready
