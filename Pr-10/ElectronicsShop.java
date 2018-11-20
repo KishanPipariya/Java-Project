@@ -1,5 +1,5 @@
 /*This project was done using Git version-control System and the repository is present on github.
-The link for repository as follows:https://github.com/KishanPipariya/Java-Project*/
+The link for repository is as follows:https://github.com/KishanPipariya/Java-Project*/
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime; 

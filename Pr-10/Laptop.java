@@ -1,12 +1,12 @@
 import java.util.Scanner;
 class Laptop
 {
-    static int catg,model,var,budget,p,comp=1,subSeries;
+    static int catg,model,var,budget,p,comp,subSeries;
     Scanner sc=new Scanner(System.in);
     static int price[]=new int[214748];
     static int quantity[]=new int[214748];
     static String name[]=new String[214748];
-    static int k=0,q;
+    static int k=0;
     public static void main()
     {
         System.out.println("Welcome");
@@ -100,32 +100,29 @@ class Laptop
         System.out.println("             Touch Technology with 400-nits Display               Touch Technology with 400-nits Display"); 
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Alienware();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Alienware();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Alienware 13(1) laptop each priced at Rs 75000");
+            System.out.println("You have choosed Alienware 13(1) laptop priced at Rs 75000");
             price[k]=75000;
-            quantity[k]=q;
             name[k]="Alienware 13(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased"+q+"Alienware 13(2) laptop each priced at Rs 98000");
+            System.out.println("You have choosed Alienware 13(2) priced at Rs 98000");
             price[k]=98000;
-            quantity[k]=q;
             name[k]="Alienware 13(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Alienware_13();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Alienware();
     }
 
@@ -143,32 +140,29 @@ class Laptop
         System.out.println("                                                                   NVIDIA G-SYNC Enabled");               
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Alienware();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Alienware();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Alienware 15(1) laptop each priced at Rs 93500");
+            System.out.println("You have choosed Alienware 15(1) laptop priced at Rs 93500");
             price[k]=93500;
-            quantity[k]=q;
             name[k]="Alienware 15(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Alienware 15(2) laptop each priced at Rs 100000");
+            System.out.println("You have choosed Alienware 15(2) laptop priced at Rs 100000");
             price[k]=100000;
-            quantity[k]=q;
             name[k]="Alienware 15(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Alienware_15();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Alienware();
     }
 
@@ -186,32 +180,29 @@ class Laptop
         System.out.println("                                                                NVIDIA G-SYNC Enabled");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Alienware();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Alienware();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Alienware 17(1) laptop each priced at Rs 104000");
+            System.out.println("You have choosed Alienware 17(1) laptop priced at Rs 104000");
             price[k]=104000;
-            quantity[k]=q;
             name[k]="Alienware 17(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Alienware 17(2) laptop each priced at Rs 125000");
+            System.out.println("You have choosed Alienware 17(2) laptop priced at Rs 125000");
             price[k]=100000;
-            quantity[k]=q;
             name[k]="Alienware 17(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Alienware_17();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Alienware();
     } 
 
@@ -231,6 +222,8 @@ class Laptop
             case 2:
             Inspiron_5000();
             break;
+            case 3:
+            Inspiron_7000();
             case 0:
             Dell();
             break;
@@ -289,32 +282,29 @@ class Laptop
         System.out.println("Display:     15.6-inch HD (1366 x 768)         15.6-inch HD (1366 x 768) ");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_3000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_3000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3573(1) laptop each priced at Rs 24300");
+            System.out.println("You have choosed Inspiron 15 3573(1) laptop priced at Rs 24300");
             price[k]=24300;
-            quantity[k]=q;
             name[k]="Inspiron 15 3573(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3573(2) laptop each priced at Rs 24800");
+            System.out.println("You have choosed Inspiron 15 3573(2) laptop priced at Rs 24800");
             price[k]=24800;
-            quantity[k]=q;
             name[k]="Inspiron 15 3573(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_15_3573();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_3000();
     }
 
@@ -331,32 +321,29 @@ class Laptop
         System.out.println("Display:     15.6-inch HD (1366 x 768)              15.6-inch HD (1366 x 768) Anti-Glare");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_3000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_3000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3565(1) laptop each priced at Rs 23800");
+            System.out.println("You have choosed Inspiron 15 3565(1) laptop priced at Rs 23800");
             price[k]=23800;
-            quantity[k]=q;
             name[k]="Inspiron 15 3565(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3565(2) laptop each priced at Rs 24900");
+            System.out.println("You have choosed Inspiron 15 3565(2) laptop priced at Rs 24900");
             price[k]=24900;
-            quantity[k]=q;
             name[k]="Inspiron 15 3565(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_15_3565();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_3000();
     }
 
@@ -373,32 +360,29 @@ class Laptop
         System.out.println("Display:     15.6-inch HD (1366 x 768)          15.6-inch HD (1366 x 768)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_3000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_3000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3552(1) laptop each priced at Rs 25200");
+            System.out.println("You have choosed Inspiron 15 3552(1) laptop priced at Rs 25200");
             price[k]=25200;
-            quantity[k]=q;
             name[k]="Inspiron 15 3552(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3552(2) laptop each priced at Rs 26300");
+            System.out.println("You have choosed Inspiron 15 3552(2) laptop priced at Rs 26300");
             price[k]=26300;
-            quantity[k]=q;
             name[k]="Inspiron 15 3552(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_15_3552();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_3000();
     }
 
@@ -415,32 +399,29 @@ class Laptop
         System.out.println("Display:     15.6-inch FHD (1920 x1080)              15.6-inch FHD (1920 x1080)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_3000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_3000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3567(1) laptop each priced at Rs 33200");
+            System.out.println("You have choosed Inspiron 15 3567(1) laptop priced at Rs 33200");
             price[k]=33200;
-            quantity[k]=q;
             name[k]="Inspiron 15 3567(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3567(2) laptop each priced at Rs 34000");
+            System.out.println("You have choosed Inspiron 15 3567(2) laptop priced at Rs 34000");
             price[k]=34000;
-            quantity[k]=q;
             name[k]="Inspiron 15 3567(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_15_3567();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_3000();
     }
 
@@ -457,32 +438,29 @@ class Laptop
         System.out.println("Display:     15.6-inch FHD (1920 x1080)                15.6-inch FHD (1920 x1080)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_3000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_3000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 3576(1) laptop each priced at Rs 33200");
+            System.out.println("You have choosed Inspiron 15 3576(1) laptop priced at Rs 33200");
             price[k]=34000;
-            quantity[k]=q;
             name[k]="Inspiron 15 3576(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 3576(2) laptop each priced at Rs 34000");
+            System.out.println("You have choosed Inspiron 15 3576(2) laptop priced at Rs 34000");
             price[k]=44000;
-            quantity[k]=q;
             name[k]="Inspiron 15 3576(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_15_3576();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_3000();
     }
 
@@ -514,6 +492,7 @@ class Laptop
             Inspiron_15_5580();
             case 0:
             Inspiron();
+            break;
             default:
             wrongChoice();
             Inspiron_5000();
@@ -533,25 +512,24 @@ class Laptop
         System.out.println("Display:     13.3-inch FHD (1920 x 1080)");
         System.out.println("Enter 1 to purchase the first one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_5000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_5000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 13 5370 laptop each priced at Rs 57400");
+            System.out.println("You have choosed Inspiron 13 5370 laptop priced at Rs 57400");
             price[k]=57400;
-            quantity[k]=q;
             name[k]="Inspiron 13 5370";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_13_5370();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_5000();
     }
 
@@ -568,28 +546,27 @@ class Laptop
         System.out.println("Display:     15.6-inch FHD (1920 x 1080)");
         System.out.println("Enter 1 to purchase the first one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_5000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_5000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 5570 laptop each priced at Rs 38300");
+            System.out.println("You have choosed Inspiron 15 5570 laptop priced at Rs 38300");
             price[k]=38300;
-            quantity[k]=q;
             name[k]="Inspiron 15 5570";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_15_5570();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_5000();
     }
-    
+
     public void Inspiron_15_5575()
     {
         System.out.println("We sell the following variants:");
@@ -603,35 +580,32 @@ class Laptop
         System.out.println("Display:     15.6-inch HD (1366 x 768)          15.6-inch FHD (1920 x 1080)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_5000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_5000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 5575(1) laptop each priced at Rs 36900");
+            System.out.println("You have choosed Inspiron 15 5575(1) laptop priced at Rs 36900");
             price[k]=36900;
-            quantity[k]=q;
             name[k]="Inspiron 15 5575(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 5575(2) laptop each priced at Rs 37400");
+            System.out.println("You have choosed Inspiron 15 5575(2) laptop priced at Rs 37400");
             price[k]=37400;
-            quantity[k]=q;
             name[k]="Inspiron 15 5575(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_15_5575();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_5000();
     }
-    
+
     public void Inspiron_14_5480()
     {
         System.out.println("We sell the following variants:");
@@ -645,35 +619,32 @@ class Laptop
         System.out.println("Display:     14.0-inch FHD (1920 x 1080)            14.0-inch FHD (1920 x 1080)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_5000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_5000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 14 5480(1) laptop each priced at Rs 37000");
+            System.out.println("You have choosed Inspiron 14 5480(1) laptop priced at Rs 37000");
             price[k]=37000;
-            quantity[k]=q;
             name[k]="Inspiron 14 5480(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 14 5480(2) laptop each priced at Rs 50000");
+            System.out.println("You have choosed Inspiron 14 5480(2) laptop priced at Rs 50000");
             price[k]=50000;
-            quantity[k]=q;
             name[k]="Inspiron 14 5480(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_14_5480();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_5000();
     }
-    
+
     public void Inspiron_15_5580()
     {
         System.out.println("We sell the following variants:");
@@ -687,39 +658,37 @@ class Laptop
         System.out.println("Display:     15.6-inch FHD (1920 x 1080)            15.6-inch FHD (1920 x 1080) ");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_5000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_5000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 5580(1) laptop each priced at Rs 38000");
+            System.out.println("You have choosed Inspiron 15 5580(1) laptop priced at Rs 38000");
             price[k]=38000;
-            quantity[k]=q;
             name[k]="Inspiron 15 5580(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 14 5580(2) laptop each priced at Rs 55000");
+            System.out.println("You have choosed Inspiron 14 5580(2) laptop priced at Rs 55000");
             price[k]=55000;
-            quantity[k]=q;
             name[k]="Inspiron 14 5580(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_15_5580();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_5000();
     }
-    
+
     public void Inspiron_7000()
     {
         System.out.println("We possess the following models of Inspiron 5000 series:");
         System.out.println("1.Inspiron 13 7380");
+        System.out.println("2.Inspiron 15 7572");
         System.out.println("Press 0 To Go Back To Inspiron Series");
         model=sc.nextInt();
         switch(model)
@@ -738,7 +707,7 @@ class Laptop
             Inspiron_7000();
         }
     }
-    
+
     public void Inspiron_13_7380()
     {
         System.out.println("We sell the following variants:");
@@ -752,35 +721,32 @@ class Laptop
         System.out.println("Display:     13.3-inch FHD (1920 x 1080)             13.3-inch FHD (1920 x 1080)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_7000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_7000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 13 7380(1) laptop each priced at Rs 74000");
+            System.out.println("You have choosed Inspiron 13 7380(1) laptop priced at Rs 74000");
             price[k]=74000;
-            quantity[k]=q;
             name[k]="Inspiron 13 7380(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 13 7380(2) laptop each priced at Rs 90600");
+            System.out.println("You have choosed Inspiron 13 7380(2) laptop priced at Rs 90600");
             price[k]=90600;
-            quantity[k]=q;
             name[k]="Inspiron 13 7380(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_13_7380();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_7000();
     }
-    
+
     public void Inspiron_15_7572()
     {
         System.out.println("We sell the following variants:");
@@ -796,35 +762,32 @@ class Laptop
         System.out.println("Display:     15.6-inch FHD (1920 x 1080)                  15.6-inch FHD (1920 x 1080)");
         System.out.println("Enter 1 to purchase the first one,Enter 2 to purchase the second one,Else enter 0 to go back");
         var=sc.nextInt();
-        if(var==0)
-        {
-            Inspiron_7000();
-        }
-        System.out.println("Enter the number of laptops you wish to purchase");
-        q=sc.nextInt();
         switch(var)
         {
+            case 0:
+            Inspiron_7000();
+            break;
             case 1:
-            System.out.println("You purchased "+q+" Inspiron 15 7572(1) laptop each priced at Rs 63000");
+            System.out.println("You have choosed Inspiron 15 7572(1) laptop priced at Rs 63000");
             price[k]=63000;
-            quantity[k]=q;
             name[k]="Inspiron 15 7572(1)";
-            k++;
             break;
             case 2:
-            System.out.println("You purchased "+q+" Inspiron 15 7572(2) laptop each priced at Rs 73000");
+            System.out.println("You have choosed Inspiron 15 7572(2) laptop priced at Rs 73000");
             price[k]=73000;
-            quantity[k]=q;
             name[k]="Inspiron 15 7572(2)";
-            k++;
             break;
             default:
             wrongChoice();
             Inspiron_15_7572();
         }
+        System.out.println("Enter the number of laptops you wish to purchase");
+        quantity[k]=sc.nextInt();
+        purchase(name[k],quantity[k]);
+        k++;
         Inspiron_7000();
     }
-    
+
     public void bill()
     {
         ElectronicsShop e=new ElectronicsShop();
@@ -845,8 +808,7 @@ class Laptop
             l1=name[i].length();
             e.space(l1);
             System.out.print(e.rupee(price[i]));
-            s1=Integer.toString(price[i]);
-            l2=s1.length();
+            l2=(e.rupee(price[i])).length();
             e.space(l2);
             System.out.print(quantity[i]);
             s2=Integer.toString(quantity[i]);
@@ -866,5 +828,10 @@ class Laptop
     {
         System.out.println("Wrong Choice");
         System.out.println("Please Try Again");
+    }
+    
+    public void purchase(String s,int q)
+    {
+        System.out.println("You have purchased "+q+" "+s+" laptop" );
     }
 }
