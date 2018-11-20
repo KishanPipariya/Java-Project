@@ -8,12 +8,7 @@ public class Desktop
     GraphicCard gc=new GraphicCard();
     RAM ra=new RAM();
     Motherboard mo=new Motherboard();
-    String po;
-    Desktop(String processor,String graphicCards)
-    {
-        po=processor;
-    }
-
+    Scanner sc=new Scanner(System.in);
     public void processor()
     {
         pr.ma();
@@ -36,7 +31,7 @@ public class Desktop
 
     public static void main()
     {
-        Desktop d= new Desktop("","");
+        Desktop d= new Desktop();
         spec[0][0]="Processor:";
         spec[0][1]=processor;
         spec[1][0]="Graphic Card:";
@@ -45,13 +40,13 @@ public class Desktop
         spec[2][1]=ram;
         spec[3][0]="Motherboard:";
         spec[3][1]=motherboard;
-        Scanner sc=new Scanner(System.in);
+        Scanner in=new Scanner(System.in);
         System.out.println("Press 1 to view processor section");
         System.out.println("Press 2 to view graphic card section");
         System.out.println("Press 3 to view RAM section");
         System.out.println("Press 4 to view Motherboard section");
-        System.out.println("Press 0 to print the bill");
-        int a=sc.nextInt();
+        System.out.println("Press 0 to exit and print the bill");
+        int a=in.nextInt();
         switch(a)
         {
             case 0:
@@ -68,9 +63,9 @@ public class Desktop
             break;
             case 4:
             d.motherboard();
+            break;
             default:
-            System.out.println("Wrong Choice");
-            System.out.println("Please Try Again");
+            d.wrongChoice();
             main();
         }
     }
@@ -78,7 +73,6 @@ public class Desktop
     public class Processor
     {
         int price;
-        Scanner sc=new Scanner(System.in);
         Processor()
         {
         }
@@ -172,8 +166,7 @@ public class Desktop
                 purchase();
                 break;
                 default:
-                System.out.println("Wrong Choice");
-                System.out.println("Plaese Try Again");
+                wrongChoice();
                 ma();
             }
         }
@@ -195,8 +188,7 @@ public class Desktop
                     main();
                     break;
                     default:
-                    System.out.println("Wrong Choice");
-                    System.out.println("Plaese Try Again");
+                    wrongChoice();
                     purchase();
                 }
             }
@@ -213,7 +205,11 @@ public class Desktop
                     case 2:
                     cost[0]=price;
                     Motherboard m=new Motherboard();
-                    m.ma();                    
+                    m.ma();
+                    break;
+                    default:
+                    wrongChoice();
+                    purchase();
                 }
             }
         }
@@ -222,7 +218,6 @@ public class Desktop
     {
         String m,a,na,b;
         int price,p,c;
-        Scanner sc=new Scanner(System.in);
         GraphicCard()
         {
         }
@@ -303,8 +298,7 @@ public class Desktop
                 purchase();
                 break;
                 default:
-                System.out.println("Wrong Choice");
-                System.out.println("Plaese Try Again");
+                wrongChoice();
                 ma();
             }
         }
@@ -324,8 +318,7 @@ public class Desktop
                 main();
                 break;
                 default:
-                System.out.println("Wrong Choice");
-                System.out.println("Plaese Try Again");
+                wrongChoice();
                 purchase();
             }
         }
@@ -335,7 +328,6 @@ public class Desktop
         String m,na,mt;
         int c,p,f;
         int price;
-        Scanner sc=new Scanner(System.in);
         RAM()
         {
         }
@@ -346,6 +338,7 @@ public class Desktop
             na=name;
             c=capacity;
             mt=memoryType;
+            f=memorySpeed;
             p=price;
         }
 
@@ -355,7 +348,7 @@ public class Desktop
             System.out.println("Manufacturer:"+m);
             System.out.println("Capacity:"+c+"GB");
             System.out.println("Memory Type:"+mt);
-            System.out.println("Frequency"+f);
+            System.out.println("Frequency:"+f);
             System.out.println("Price:"+p);
         }
 
@@ -406,8 +399,7 @@ public class Desktop
                 purchase();
                 break;
                 default:
-                System.out.println("Wrong Choice");
-                System.out.println("Plaese Try Again");
+                wrongChoice();
                 ma();
             }
         }
@@ -427,8 +419,7 @@ public class Desktop
                 main();
                 break;
                 default:
-                System.out.println("Wrong Choice");
-                System.out.println("Plaese Try Again");
+                wrongChoice();
                 purchase();
             }
         }
@@ -437,7 +428,6 @@ public class Desktop
     {
         String m,na,st,ch,rt,f;
         int c,p,price;
-        Scanner sc=new Scanner(System.in);
         Motherboard(String manufacturer,String name,String socketType,String chipset,String ramType,int capacity,String formFactor,int price)
         {
             m=manufacturer;
@@ -526,8 +516,7 @@ public class Desktop
                 purchase();
                 break;
                 default:
-                System.out.println("Wrong Choice");
-                System.out.println("Plaese Try Again");
+                wrongChoice();
                 ma();
             }
         }
@@ -549,8 +538,7 @@ public class Desktop
                     main();
                     break;
                     default:
-                    System.out.println("Wrong Choice");
-                    System.out.println("Please Try Again");
+                    wrongChoice();
                     purchase();
                 }
             }
@@ -570,8 +558,7 @@ public class Desktop
                     p.ma();  
                     break;
                     default:
-                    System.out.println("Wrong Choice");
-                    System.out.println("Please Try Again");
+                    wrongChoice();
                     purchase();
                 }
             }
@@ -580,7 +567,7 @@ public class Desktop
 
     public void specs()
     {
-        System.out.println("Specifications");
+        System.out.println("Specifications:");
         System.out.println("Processor:"+processor);
         System.out.println("Graphic Card:"+graphicCard);
         System.out.println("Ram:"+ram);
@@ -591,10 +578,12 @@ public class Desktop
     public void dispalySpecTable()
     {
         System.out.println("Bill");
-        Controller c=new Controller();
+        ElectronicsShop e=new ElectronicsShop();
+        System.out.print("Date and Time: ");
+        e.date();
         int i,j,k=0,l=0;
         System.out.print("Component");
-        c.space(9);
+        e.space(9);
         System.out.println("Cost");
         for(i=0;i<4;i++)
         {
@@ -605,8 +594,8 @@ public class Desktop
                 k=spec[i][j].length(); 
                 l=l+k;
             }
-            c.space(l);
-            String s=c.rupee(cost[i]);
+            e.space(l);
+            String s=e.rupee(cost[i]);
             System.out.println("Rs"+s);
         }
         bill();        
@@ -614,19 +603,25 @@ public class Desktop
 
     public void bill()
     {
-        Controller c=new Controller();
+        ElectronicsShop e=new ElectronicsShop();        
         int su=0,i;
         String s1;
         for(i=0;i<4;i++)
         {
             su=su+cost[i];
         }
-        s1=c.rupee(su);
+        s1=e.rupee(su);
         System.out.print("Total Cost:");
-        c.space(11);
+        e.space(11);
         System.out.println("Rs"+s1);
         System.out.println("********Thanks for shopping with us********");
-        c.main();
+        e.main();
+    }
+    
+    public void wrongChoice()
+    {
+        System.out.println("Wrong Choice");
+        System.out.println("Please Try Again");
     }
 }
 

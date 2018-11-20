@@ -827,37 +827,39 @@ class Laptop
     
     public void bill()
     {
-        Controller c=new Controller();
+        ElectronicsShop e=new ElectronicsShop();
         int i,l1,l2,l3,tc=0;
         String s1,s2;
+        System.out.println("Bill:");
+        e.date();
         System.out.print("Name");
-        c.space(4);
+        e.space(4);
         System.out.print("Price per unit");
-        c.space(14);
+        e.space(14);
         System.out.print("Quantity");
-        c.space(8);
+        e.space(8);
         System.out.println("Total Cost");
         for(i=0;i<k;i++)
         {
             System.out.print(name[i]);
             l1=name[i].length();
-            c.space(l1);
-            System.out.print(c.rupee(price[i]));
+            e.space(l1);
+            System.out.print(e.rupee(price[i]));
             s1=Integer.toString(price[i]);
             l2=s1.length();
-            c.space(l2);
+            e.space(l2);
             System.out.print(quantity[i]);
             s2=Integer.toString(quantity[i]);
             l3=s2.length();
-            c.space(l3);
-            System.out.println(c.rupee(price[i]*quantity[i]));
+            e.space(l3);
+            System.out.println(e.rupee(price[i]*quantity[i]));
             tc=tc+(price[i]*quantity[i]);
         }
         System.out.print("Total Cost:");
-        c.space(11);
-        System.out.println(c.rupee(tc));
+        e.space(11);
+        System.out.println(e.rupee(tc));
         System.out.println("*************Thanks for shopping with us*************");
-        c.main();
+        e.main();
     }
 
     public void wrongChoice()

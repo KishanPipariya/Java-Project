@@ -1,9 +1,13 @@
+/*This project was done using Git version-control System and the repository is present on github.
+The link for repository as follows:https://github.com/KishanPipariya/Java-Project*/
 import java.util.Scanner;
-public class Controller
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime; 
+public class ElectronicsShop
 {
     public static void main()
     {
-        Controller c=new Controller();
+        ElectronicsShop e=new ElectronicsShop();
         System.out.println("Welcome to electronics");
         Scanner sc=new Scanner(System.in);
         System.out.println("Press 1 to build a PC ");
@@ -13,7 +17,7 @@ public class Controller
         switch(a)
         {
             case 1:
-            Desktop de=new Desktop("","");
+            Desktop de=new Desktop();
             de.main();
             break;
             case 2:
@@ -21,7 +25,7 @@ public class Controller
             la.main();
             break;
             case 0:
-            c.exit();
+            e.exit();
             break;
             default:
             System.out.println("Wrong Choice");
@@ -83,8 +87,15 @@ public class Controller
         return s1;
     }
 
+    public void date()
+    {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");  
+        LocalDateTime now = LocalDateTime.now();  
+        System.out.println(dtf.format(now));  
+    }
+
     public void exit()
     {
-        System.out.println("Thanks for shopping with us");
+        System.out.println("********Thanks for visiting our shop********");
     }
 }
