@@ -2,32 +2,13 @@ import java.util.Scanner;
 public class Desktop
 {
     static String processor=" -",graphicCard=" -",ram=" -",socketTypeP="",socketTypeM="",motherboard="-";
-    static int cost[]=new int[4];
-    static String spec[][]=new String[4][2];
+    static int cost[]=new int[4];//It stores the prices of items purchased by the user
+    static String spec[][]=new String[4][2];//It stores the name and category of item purchased by the user
     Processor pr=new Processor();
     GraphicCard gc=new GraphicCard();
     RAM ra=new RAM();
     Motherboard mo=new Motherboard();
     Scanner sc=new Scanner(System.in);
-    public void processor()
-    {
-        pr.ma();
-    }
-
-    public void graphicCard()
-    {
-        gc.ma();
-    }
-
-    public void ram()
-    {
-        ra.ma();
-    }
-
-    public void motherboard()
-    {
-        mo.ma();
-    }
 
     public static void main()
     {
@@ -70,35 +51,55 @@ public class Desktop
         }
     }
 
+    public void processor()
+    {
+        pr.ma();//Takes the user to processor section
+    }
+
+    public void graphicCard()
+    {
+        gc.ma();//Takes the user to graphic card section
+    }
+
+    public void ram()
+    {
+        ra.ma();//Takes the user to ram section
+    }
+
+    public void motherboard()
+    {
+        mo.ma();//Takes the user to motherboard section
+    }
+
     public class Processor
     {
-        int price;
         Processor()
         {
         }
-        String s,na,st;
-        int n,p,c;
-        double f;
-        Processor(String manufacturer,String name,double frequency,int noOfCores,int cache,String socketType,int price)
+        String manufacturer,name,socketType;
+        int noOfCores,cache,price,pr;
+        double frequency;
+        Processor(String m,String na,double f,int n,int c,String s,int p)
+        //This consturctor is used to create various processors,each with its own unique specifications
         {
-            s=manufacturer;
-            na=name;
-            f=frequency;
-            n=noOfCores;
-            c=cache;
-            st=socketType;
-            p=price;
+            manufacturer=m;
+            name=na;
+            frequency=f;
+            noOfCores=n;
+            cache=c;
+            socketType=s;
+            price=p;
         }
 
-        public void display()
+        public void display()//This function is used to display the specifications of a processor
         {
-            System.out.println("Name:"+na);
-            System.out.println("Manufacturer:"+s);
-            System.out.println("Frequency:"+f+"Ghz");
-            System.out.println("No of cores:"+n);
-            System.out.println("Cache:"+c+"MB");
-            System.out.println("Socket Type:"+st);
-            System.out.println("Price:"+p);
+            System.out.println("Name:"+name);
+            System.out.println("Manufacturer:"+manufacturer);
+            System.out.println("Frequency:"+frequency+"Ghz");
+            System.out.println("No of cores:"+noOfCores);
+            System.out.println("Cache:"+cache+"MB");
+            System.out.println("Socket Type:"+socketType);
+            System.out.println("Price:"+price);
         }
 
         public void ma()
@@ -125,44 +126,44 @@ public class Desktop
                 break;
                 case 1:
                 i3_8100.display();
-                processor=i3_8100.na;
-                price=i3_8100.p;
-                socketTypeP=i3_8100.st;
+                processor=i3_8100.name;
+                pr=i3_8100.price;
+                socketTypeP=i3_8100.socketType;
                 purchase();
                 break;
                 case 2:
                 i5_8400.display();
-                processor=i5_8400.na;
-                price=i5_8400.p;
-                socketTypeP=i5_8400.st;
+                processor=i5_8400.name;
+                pr=i5_8400.price;
+                socketTypeP=i5_8400.socketType;
                 purchase();
                 break;
                 case 3:
                 i7_8700.display();
-                processor=i7_8700.na;
-                price=i7_8700.p;
-                socketTypeP=i7_8700.st;
+                processor=i7_8700.name;
+                pr=i7_8700.price;
+                socketTypeP=i7_8700.socketType;
                 purchase();
                 break;
                 case 4:
                 Ryzen_3_1200.display();
-                processor=Ryzen_3_1200.na;
-                price=Ryzen_3_1200.p;
-                socketTypeP=Ryzen_3_1200.st;
+                processor=Ryzen_3_1200.name;
+                pr=Ryzen_3_1200.price;
+                socketTypeP=Ryzen_3_1200.socketType;
                 purchase();
                 break;
                 case 5:
                 Ryzen_5_1600.display();
-                processor=Ryzen_5_1600.na;
-                price=Ryzen_5_1600.p;
-                socketTypeP=Ryzen_5_1600.st;
+                processor=Ryzen_5_1600.name;
+                pr=Ryzen_5_1600.price;
+                socketTypeP=Ryzen_5_1600.socketType;
                 purchase();
                 break;
                 case 6:
                 Ryzen_7_1700.display();
-                processor=Ryzen_7_1700.na;
-                price=Ryzen_7_1700.p;
-                socketTypeP=Ryzen_7_1700.st;
+                processor=Ryzen_7_1700.name;
+                pr=Ryzen_7_1700.price;
+                socketTypeP=Ryzen_7_1700.socketType;
                 purchase();
                 break;
                 default:
@@ -173,7 +174,7 @@ public class Desktop
 
         public void purchase()
         {
-            if(socketTypeP==socketTypeM||socketTypeM=="")
+            if(socketTypeP==socketTypeM||socketTypeM=="")//This statement is used to ensure compatibility between processor and motherboard
             {
                 System.out.println("Press 0 to go back or press 1 to purchase it");
                 int a=sc.nextInt();
@@ -184,7 +185,7 @@ public class Desktop
                     ma();
                     break;
                     case 1:
-                    cost[0]=price;
+                    cost[0]=pr;
                     main();
                     break;
                     default:
@@ -203,7 +204,7 @@ public class Desktop
                     ma();
                     break;
                     case 2:
-                    cost[0]=price;
+                    cost[0]=pr;
                     Motherboard m=new Motherboard();
                     m.ma();
                     break;
@@ -216,30 +217,31 @@ public class Desktop
     }
     public class GraphicCard
     {
-        String m,a,na,b;
-        int price,p,c;
+        String manufacturer,architecture,name,brand;
+        int price,capacity,pr;
         GraphicCard()
         {
         }
 
-        GraphicCard(String brand,String manufacturer,String architecture,String name,int capacity,int price)
+        GraphicCard(String b,String m,String a,String na,int c,int p)
+        //This consturctor is used to create various graphic cards,each with its own unique specifications
         {
-            b=brand;
-            m=manufacturer;
-            a=architecture;
-            na=name;
-            c=capacity;
-            p=price;
+            brand=b;
+            manufacturer=m;
+            architecture=a;
+            name=na;
+            capacity=c;
+            price=p;
         }
 
-        public void display()
+        public void display()//This function is used to display the specifications of a graphic card
         {
-            System.out.println("Name:"+b+" "+na);
-            System.out.println("Brand:"+b);
-            System.out.println("Chip maker:"+m);
-            System.out.println("Architecture:"+a);
-            System.out.println("Capacity:"+c+"GB");
-            System.out.println("Price"+p);
+            System.out.println("Name:"+brand+" "+name);
+            System.out.println("Brand:"+brand);
+            System.out.println("Chip maker:"+manufacturer);
+            System.out.println("Architecture:"+architecture);
+            System.out.println("Capacity:"+capacity+"GB");
+            System.out.println("Price"+price);
         }
 
         public void ma()
@@ -263,38 +265,38 @@ public class Desktop
             {
                 case 1:
                 GeForceGtx_950.display();
-                graphicCard=GeForceGtx_950.b+" "+GeForceGtx_950.na;
-                price=GeForceGtx_950.p;
+                graphicCard=GeForceGtx_950.brand+" "+GeForceGtx_950.name;
+                pr=GeForceGtx_950.price;
                 purchase();
                 break;
                 case 2:
                 GeForceGtx_1050.display();
-                graphicCard=GeForceGtx_1050.b+" "+GeForceGtx_1050.na;
-                price=GeForceGtx_1050.p;
+                graphicCard=GeForceGtx_1050.brand+" "+GeForceGtx_1050.name;
+                pr=GeForceGtx_1050.price;
                 purchase();
                 break;
                 case 3:
                 GeForceGtx_1060.display();
-                graphicCard=GeForceGtx_1060.b+" "+GeForceGtx_1060.na;
-                price= GeForceGtx_1060.p;
+                graphicCard=GeForceGtx_1060.brand+" "+GeForceGtx_1060.name;
+                pr= GeForceGtx_1060.price;
                 purchase();
                 break;
                 case 4:
                 Radeon_RX_550.display();
-                graphicCard=Radeon_RX_550.b+" "+Radeon_RX_550.na;
-                price= Radeon_RX_550.p;
+                graphicCard=Radeon_RX_550.brand+" "+Radeon_RX_550.name;
+                pr= Radeon_RX_550.price;
                 purchase();
                 break;
                 case 5:
                 Radeon_RX_560.display();
-                graphicCard=Radeon_RX_560.b+" "+Radeon_RX_560.na;
-                price=Radeon_RX_560.p;
+                graphicCard=Radeon_RX_560.brand+" "+Radeon_RX_560.name;
+                pr=Radeon_RX_560.price;
                 purchase();
                 break;
                 case 6:
                 Radeon_RX_580.display();
-                graphicCard=Radeon_RX_580.b+" "+Radeon_RX_580.na;
-                price=Radeon_RX_580.p;
+                graphicCard=Radeon_RX_580.brand+" "+Radeon_RX_580.name;
+                pr=Radeon_RX_580.price;
                 purchase();
                 break;
                 default:
@@ -314,7 +316,7 @@ public class Desktop
                 ma();
                 break;
                 case 1:
-                cost[1]=price;
+                cost[1]=pr;
                 main();
                 break;
                 default:
@@ -325,31 +327,32 @@ public class Desktop
     }
     public class RAM
     {
-        String m,na,mt;
-        int c,p,f;
-        int price;
+        String manufacturer,name,memoryType;
+        int capacity,pr,frequency,price;
         RAM()
         {
         }
 
-        RAM(String manufacturer,String name,int capacity,String memoryType,int memorySpeed,int price)
+        RAM(String m,String na,int c,String mt,int f,int p)
+        //This consturctor is used to create various RAMs,each with its own unique specifications
         {
-            m=manufacturer;
-            na=name;
-            c=capacity;
-            mt=memoryType;
-            f=memorySpeed;
-            p=price;
+            manufacturer=m;
+            name=na;
+            capacity=c;
+            memoryType=mt;
+            frequency=f;
+            price=p;
         }
 
         public void display()
+        //This function is used to display the specifications of a RAM stick
         {
-            System.out.println("Name:"+m+" "+na);
-            System.out.println("Manufacturer:"+m);
-            System.out.println("Capacity:"+c+"GB");
-            System.out.println("Memory Type:"+mt);
-            System.out.println("Frequency:"+f);
-            System.out.println("Price:"+p);
+            System.out.println("Name:"+manufacturer+" "+name);
+            System.out.println("Manufacturer:"+manufacturer);
+            System.out.println("Capacity:"+capacity+"GB");
+            System.out.println("Memory Type:"+memoryType);
+            System.out.println("Frequency:"+frequency);
+            System.out.println("Price:"+price);
         }
 
         public void ma()
@@ -370,32 +373,32 @@ public class Desktop
             {
                 case 1:
                 Premier.display();
-                ram=Premier.m+" "+Premier.na;
-                price=Premier.p;
+                ram=Premier.manufacturer+" "+Premier.name;
+                pr=Premier.price;
                 purchase();
                 break;
                 case 2:
                 DLR4GD4_24.display();
-                ram=DLR4GD4_24.m+" "+DLR4GD4_24.na;
-                price=DLR4GD4_24.p;
+                ram=DLR4GD4_24.manufacturer+" "+DLR4GD4_24.name;
+                pr=DLR4GD4_24.price;
                 purchase();
                 break;
                 case 3:
                 Vengeance_LPX.display();
-                ram=Vengeance_LPX.m+" "+Vengeance_LPX.na;
-                price=Vengeance_LPX.p;
+                ram=Vengeance_LPX.manufacturer+" "+Vengeance_LPX.name;
+                pr=Vengeance_LPX.price;
                 purchase();
                 break;
                 case 4:
                 Aegis.display();
-                ram=Aegis.m+" "+Aegis.na;
-                price=Aegis.p;
+                ram=Aegis.manufacturer+" "+Aegis.name;
+                pr=Aegis.price;
                 purchase();
                 break;
                 case 5:
                 Ripjaws_V.display();
-                ram=Ripjaws_V.m+" "+Ripjaws_V.na;
-                price=Ripjaws_V.p;
+                ram=Ripjaws_V.manufacturer+" "+Ripjaws_V.name;
+                pr=Ripjaws_V.price;
                 purchase();
                 break;
                 default:
@@ -415,7 +418,7 @@ public class Desktop
                 ma();
                 break;
                 case 1:
-                cost[2]=price;
+                cost[2]=pr;
                 main();
                 break;
                 default:
@@ -426,34 +429,35 @@ public class Desktop
     }
     public class Motherboard
     {
-        String m,na,st,ch,rt,f;
-        int c,p,price;
-        Motherboard(String manufacturer,String name,String socketType,String chipset,String ramType,int capacity,String formFactor,int price)
+        String manufacturer,name,socketType,chipset,ramType,formFactor;
+        int capacity,pr,price;
+        Motherboard(String m,String na,String st,String ch,String rt,int c,String f,int p)
+        //This consturctor is used to create various Motherboards,each with its own unique specifications
         {
-            m=manufacturer;
-            na=name;
-            st=socketType;
-            ch=chipset;
-            rt=ramType;
-            c=capacity;
-            f=formFactor;
-            p=price;
+            manufacturer=m;
+            name=na;
+            socketType=st;
+            chipset=ch;
+            ramType=rt;
+            capacity=c;
+            formFactor=f;
+            price=p;
         }
 
         Motherboard()
         {
         }
 
-        public void display()
+        public void display()//This function is used to display the specifications of a motherboard
         {
-            System.out.println("Name:"+m+" "+na);
-            System.out.println("Manufacturer:"+m);
-            System.out.println("Socket Type:"+st);
-            System.out.println("Chipset:"+ch);
-            System.out.println("RAM Type:"+rt);
-            System.out.println("Memory Capacity:"+c);
-            System.out.println("Form Factor:"+f);
-            System.out.println("Price:"+p);
+            System.out.println("Name:"+manufacturer+" "+name);
+            System.out.println("Manufacturer:"+manufacturer);
+            System.out.println("Socket Type:"+socketType);
+            System.out.println("Chipset:"+chipset);
+            System.out.println("RAM Type:"+ramType);
+            System.out.println("Memory Capacity:"+capacity);
+            System.out.println("Form Factor:"+formFactor);
+            System.out.println("Price:"+price);
         }
 
         public void ma()
@@ -475,44 +479,44 @@ public class Desktop
             {
                 case 1:
                 ROG.display();
-                motherboard=ROG.m+" "+ROG.na;
-                price=ROG.p;
-                socketTypeM=ROG.st;
+                motherboard=ROG.manufacturer+" "+ROG.name;
+                pr=ROG.price;
+                socketTypeM=ROG.socketType;
                 purchase();
                 break;
                 case 2:
                 B150M_D3H.display();
-                motherboard=B150M_D3H.m+" "+B150M_D3H.na;
-                price=B150M_D3H.p;
-                socketTypeM=B150M_D3H.st;
+                motherboard=B150M_D3H.manufacturer+" "+B150M_D3H.name;
+                pr=B150M_D3H.price;
+                socketTypeM=B150M_D3H.socketType;
                 purchase();
                 break;
                 case 3:
                 PRO_VH.display();
-                motherboard=PRO_VH.m+" "+PRO_VH.na;
-                price=PRO_VH.p;
-                socketTypeM=PRO_VH.st;
+                motherboard=PRO_VH.manufacturer+" "+PRO_VH.name;
+                pr=PRO_VH.price;
+                socketTypeM=PRO_VH.socketType;
                 purchase();
                 break;
                 case 4:
                 Mortar.display();
-                motherboard=Mortar.m+" "+Mortar.na;
-                price=Mortar.p;
-                socketTypeM=Mortar.st;
+                motherboard=Mortar.manufacturer+" "+Mortar.name;
+                pr=Mortar.price;
+                socketTypeM=Mortar.socketType;
                 purchase();
                 break;
                 case 5:
                 Prime.display();
-                motherboard=Prime.m+" "+Prime.na;
-                price=Prime.p;
-                socketTypeM=Prime.st;
+                motherboard=Prime.manufacturer+" "+Prime.name;
+                pr=Prime.price;
+                socketTypeM=Prime.socketType;
                 purchase();
                 break;
                 case 6:
                 GamingPro.display();
-                motherboard=GamingPro.m+" "+GamingPro.na;
-                price=GamingPro.p;
-                socketTypeM=GamingPro.st;
+                motherboard=GamingPro.manufacturer+" "+GamingPro.name;
+                pr=GamingPro.price;
+                socketTypeM=GamingPro.socketType;
                 purchase();
                 break;
                 default:
@@ -523,7 +527,7 @@ public class Desktop
 
         public void purchase()
         {
-            if(socketTypeM==socketTypeP||socketTypeP=="")
+            if(socketTypeM==socketTypeP||socketTypeP=="")//This statement is used to ensure compatibility between processor and motherboard
             {
                 System.out.println("Press 0 to go back or Press 1 to purchase it");
                 int c=sc.nextInt();
@@ -534,7 +538,7 @@ public class Desktop
                     ma();
                     break;
                     case 1:
-                    cost[3]=price;
+                    cost[3]=pr;
                     main();
                     break;
                     default:
@@ -553,7 +557,7 @@ public class Desktop
                     ma();
                     break;
                     case 2:
-                    cost[3]=price;
+                    cost[3]=pr;
                     Processor p=new Processor();
                     p.ma();  
                     break;
@@ -565,7 +569,7 @@ public class Desktop
         }
     }
 
-    public void specs()
+    public void specs()//ThisFunction dispalys the specification of desktop built by the user
     {
         System.out.println("Specifications:");
         System.out.println("Processor:"+processor);
@@ -575,7 +579,7 @@ public class Desktop
         dispalySpecTable();
     }
 
-    public void dispalySpecTable()
+    public void dispalySpecTable()//This function prints majority of the bill
     {
         System.out.println("Bill");
         ElectronicsShop e=new ElectronicsShop();
@@ -601,7 +605,7 @@ public class Desktop
         bill();        
     }
 
-    public void bill()
+    public void bill()//This function prints the remaining bill
     {
         ElectronicsShop e=new ElectronicsShop();        
         int su=0,i;
@@ -617,11 +621,17 @@ public class Desktop
         System.out.println("********Thanks for shopping with us********");
         e.main();
     }
-    
+
     public void wrongChoice()
     {
         System.out.println("Wrong Choice");
         System.out.println("Please Try Again");
     }
 }
+
+
+
+
+
+
 

@@ -8,7 +8,7 @@ public class ElectronicsShop
     public static void main()
     {
         ElectronicsShop e=new ElectronicsShop();
-        System.out.println("Welcome to electronics");
+        System.out.println("Welcome");
         Scanner sc=new Scanner(System.in);
         System.out.println("Press 1 to build a PC ");
         System.out.println("Press 2 to purchase laptop");
@@ -18,14 +18,14 @@ public class ElectronicsShop
         {
             case 1:
             Desktop de=new Desktop();
-            de.main();
+            de.main();//Takes the user to desktop section
             break;
             case 2:
             Laptop la =new Laptop();
-            la.main();
+            la.main();//Takes the user to laptop section
             break;
             case 0:
-            e.exit();
+            e.exit();//Takes the user to exit
             break;
             default:
             System.out.println("Wrong Choice");
@@ -34,7 +34,7 @@ public class ElectronicsShop
         }
     }
 
-    public void space(int l)
+    public void space(int l)//This function is used to generate a specific length of  blank space
     {
         int a=40-l;
         while(a>0)
@@ -44,7 +44,7 @@ public class ElectronicsShop
         }
     }
 
-    public String reverse(String s)
+    public String reverse(String s)//This function is used to reverse a string
     {
         int l=s.length();
         char c;
@@ -57,7 +57,7 @@ public class ElectronicsShop
         return s1;
     }
 
-    public String rupee(int a)
+    public String rupee(int a)//This function adds commas according to the Indian standard to a numerical value 
     {
         String s1="",s2="";
         char c;
@@ -87,7 +87,7 @@ public class ElectronicsShop
         return s1;
     }
 
-    public void date()
+    public void date()//This function displays the date and time when bill is printed
     {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");  
         LocalDateTime now = LocalDateTime.now();  

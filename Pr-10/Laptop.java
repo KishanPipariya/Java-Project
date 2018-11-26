@@ -3,10 +3,10 @@ class Laptop
 {
     static int catg,model,var,budget,p,comp,subSeries;
     Scanner sc=new Scanner(System.in);
-    static int price[]=new int[214748];
-    static int quantity[]=new int[214748];
-    static String name[]=new String[214748];
-    static int k=0;
+    static int price[]=new int[214748];//It stores the price of laptop purchased by the user
+    static int quantity[]=new int[214748];//It stores the quantity of a particular laptop purchased by the user
+    static String name[]=new String[214748];//It stores the name of laptops purchased by the user
+    static int k=0;//It is number of orders placed by user
     public static void main()
     {
         System.out.println("Welcome");
@@ -830,8 +830,39 @@ class Laptop
         System.out.println("Please Try Again");
     }
     
-    public void purchase(String s,int q)
+    public void purchase(String s,int q)//This function display the user's order
     {
         System.out.println("You have purchased "+q+" "+s+" laptop" );
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

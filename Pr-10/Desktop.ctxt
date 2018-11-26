@@ -1,14 +1,14 @@
 #BlueJ class context
 comment0.params=
-comment0.target=void\ processor()
+comment0.target=void\ main()
 comment1.params=
-comment1.target=void\ graphicCard()
+comment1.target=void\ processor()
 comment2.params=
-comment2.target=void\ ram()
+comment2.target=void\ graphicCard()
 comment3.params=
-comment3.target=void\ motherboard()
+comment3.target=void\ ram()
 comment4.params=
-comment4.target=void\ main()
+comment4.target=void\ motherboard()
 comment5.params=
 comment5.target=void\ specs()
 comment6.params=
