@@ -41,6 +41,7 @@ class Laptop
         System.out.println("1.Alienware");
         System.out.println("2.Inspiron");
         System.out.println("Press 0 To Exit To Laptops Section");
+        System.out.println("Press 9 to exit and print the bill");
         model=sc.nextInt();
         switch(model)
         {
@@ -52,6 +53,9 @@ class Laptop
             break;
             case 0:
             laptop();
+            break;
+            case 9:
+            bill();
             break;
             default:
             wrongChoice();
@@ -66,6 +70,7 @@ class Laptop
         System.out.println("2.Alienware 15");
         System.out.println("3.Alienware 17");
         System.out.println("Press 0 To Go Back To Dell Section");
+        System.out.println("Press 9 to exit and print the bill");
         model=sc.nextInt();
         switch(model)
         {
@@ -80,7 +85,10 @@ class Laptop
             case 0:
             Dell();
             break;
-            default:
+            case 9:
+            bill();
+            break;
+            default: 
             wrongChoice();
             Alienware();
         }
@@ -192,7 +200,7 @@ class Laptop
             break;
             case 2:
             System.out.println("You have choosed Alienware 17(2) laptop priced at Rs 125000");
-            price[k]=100000;
+            price[k]=125000;
             name[k]="Alienware 17(2)";
             break;
             default:
@@ -213,6 +221,7 @@ class Laptop
         System.out.println("2.5000 series");
         System.out.println("3.7000 series");
         System.out.println("Press 0 To Go Back To Dell Section");
+        System.out.println("Press 9 to exit and print the bill");
         subSeries=sc.nextInt();
         switch(subSeries)
         {
@@ -226,6 +235,9 @@ class Laptop
             Inspiron_7000();
             case 0:
             Dell();
+            break;
+            case 9:
+            bill();
             break;
             default:
             wrongChoice();
@@ -242,6 +254,7 @@ class Laptop
         System.out.println("4.Inspiron 15 3567");
         System.out.println("5.Inspiron 15 3576");
         System.out.println("Press 0 To Go Back To Inspiron Series");
+        System.out.println("Press 9 to exit and print the bill");
         model=sc.nextInt();
         switch(model)
         {
@@ -262,6 +275,9 @@ class Laptop
             break;
             case 0:
             Inspiron();
+            break;
+            case 9:
+            bill();
             break;
             default:
             wrongChoice();
@@ -473,6 +489,7 @@ class Laptop
         System.out.println("4.Inspiron 14 5480");
         System.out.println("5.Inspiron 15 5580");
         System.out.println("Press 0 To Go Back To Inspiron Series");
+        System.out.println("Press 9 to exit and print the bill");
         model=sc.nextInt();
         switch(model)
         {
@@ -492,6 +509,9 @@ class Laptop
             Inspiron_15_5580();
             case 0:
             Inspiron();
+            break;
+            case 9:
+            bill();
             break;
             default:
             wrongChoice();
@@ -690,6 +710,7 @@ class Laptop
         System.out.println("1.Inspiron 13 7380");
         System.out.println("2.Inspiron 15 7572");
         System.out.println("Press 0 To Go Back To Inspiron Series");
+        System.out.println("Press 9 to exit and print the bill");
         model=sc.nextInt();
         switch(model)
         {
@@ -701,6 +722,9 @@ class Laptop
             break;
             case 0:
             Inspiron();
+            break;
+            case 9:
+            bill();
             break;
             default:
             wrongChoice();
@@ -788,7 +812,7 @@ class Laptop
         Inspiron_7000();
     }
 
-    public void bill()
+    public void bill()//This function prints the bill
     {
         ElectronicsShop e=new ElectronicsShop();
         int i,l1,l2,l3,tc=0;
@@ -817,6 +841,7 @@ class Laptop
             System.out.println(e.rupee(price[i]*quantity[i]));
             tc=tc+(price[i]*quantity[i]);
         }
+        System.out.println();
         System.out.print("Total Cost:");
         e.space(11);
         System.out.println(e.rupee(tc));
