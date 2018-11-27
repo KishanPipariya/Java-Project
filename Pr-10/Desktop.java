@@ -259,7 +259,6 @@ public class Desktop
             System.out.println("Press 4 to view Gigabyte Radeon RX 550");
             System.out.println("Press 5 to view ASUS Radeon RX 560");
             System.out.println("Press 6 to view Gigabyte Radeon RX 580");
-            System.out.println("");
             int c=sc.nextInt();
             switch(c)
             {
@@ -587,7 +586,7 @@ public class Desktop
         e.date();
         int i,j,k=0,l=0;
         System.out.print("Component");
-        e.space(9);
+        e.space(60,9);
         System.out.println("Cost");
         for(i=0;i<4;i++)
         {
@@ -598,7 +597,7 @@ public class Desktop
                 k=spec[i][j].length(); 
                 l=l+k;
             }
-            e.space(l);
+            e.space(60,l);
             String s=e.rupee(cost[i]);
             System.out.println("Rs"+s);
         }
@@ -616,7 +615,7 @@ public class Desktop
         }
         s1=e.rupee(su);
         System.out.print("Total Cost:");
-        e.space(11);
+        e.space(60,11);
         System.out.println("Rs"+s1);
         System.out.println("********Thanks for shopping with us********");
         e.main();
@@ -628,6 +627,8 @@ public class Desktop
         System.out.println("Please Try Again");
     }
 }
+
+
 
 
 

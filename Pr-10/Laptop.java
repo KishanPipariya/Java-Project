@@ -79,6 +79,7 @@ class Laptop
             break;
             case 2:
             Alienware_15();
+            break;
             case 3:
             Alienware_17();
             break;
@@ -820,30 +821,30 @@ class Laptop
         System.out.println("Bill:");
         e.date();
         System.out.print("Name");
-        e.space(4);
+        e.space(40,4);
         System.out.print("Price per unit");
-        e.space(14);
+        e.space(40,14);
         System.out.print("Quantity");
-        e.space(8);
+        e.space(40,8);
         System.out.println("Total Cost");
         for(i=0;i<k;i++)
         {
             System.out.print(name[i]);
             l1=name[i].length();
-            e.space(l1);
+            e.space(40,l1);
             System.out.print(e.rupee(price[i]));
             l2=(e.rupee(price[i])).length();
-            e.space(l2);
+            e.space(40,l2);
             System.out.print(quantity[i]);
             s2=Integer.toString(quantity[i]);
             l3=s2.length();
-            e.space(l3);
+            e.space(40,l3);
             System.out.println(e.rupee(price[i]*quantity[i]));
             tc=tc+(price[i]*quantity[i]);
         }
         System.out.println();
         System.out.print("Total Cost:");
-        e.space(11);
+        e.space(40,11);
         System.out.println(e.rupee(tc));
         System.out.println("*************Thanks for shopping with us*************");
         e.main();

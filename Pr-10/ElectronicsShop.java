@@ -34,9 +34,9 @@ public class ElectronicsShop
         }
     }
 
-    public void space(int l)//This function is used to generate a specific length of  blank space
+    public void space(int size,int l)//This function is used to generate a specific length of  blank space
     {
-        int a=40-l;
+        int a=size-l;
         while(a>0)
         {
             System.out.print(" ");
@@ -99,3 +99,28 @@ public class ElectronicsShop
         System.out.println("********Thanks for visiting our shop********");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
