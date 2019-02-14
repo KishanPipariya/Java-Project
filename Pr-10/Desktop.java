@@ -12,7 +12,6 @@ public class Desktop
 
     public static void main()
     {
-        Desktop d= new Desktop();
         spec[0][0]="Processor:";
         spec[0][1]=processor;
         spec[1][0]="Graphic Card:";
@@ -21,56 +20,40 @@ public class Desktop
         spec[2][1]=ram;
         spec[3][0]="Motherboard:";
         spec[3][1]=motherboard;
-        Scanner in=new Scanner(System.in);
+    }
+
+    public void entry()
+    {
+        Desktop d= new Desktop();
         System.out.println("Press 1 to view processor section");
         System.out.println("Press 2 to view graphic card section");
         System.out.println("Press 3 to view RAM section");
         System.out.println("Press 4 to view Motherboard section");
         System.out.println("Press 0 to exit and print the bill");
-        int a=in.nextInt();
+        int a=sc.nextInt();
         switch(a)
         {
             case 0:
             d.specs();
             break;
             case 1:
-            d.processor();
+            d.pr.ma();
             break;
             case 2:
-            d.graphicCard();
+            d.gc.ma();
             break;
             case 3:
-            d.ram();
+            d.ra.ma();
             break;
             case 4:
-            d.motherboard();
+            d.mo.ma();
             break;
             default:
             d.wrongChoice();
             main();
         }
     }
-
-    public void processor()
-    {
-        pr.ma();//Takes the user to processor section
-    }
-
-    public void graphicCard()
-    {
-        gc.ma();//Takes the user to graphic card section
-    }
-
-    public void ram()
-    {
-        ra.ma();//Takes the user to ram section
-    }
-
-    public void motherboard()
-    {
-        mo.ma();//Takes the user to motherboard section
-    }
-
+    
     public class Processor
     {
         Processor()
@@ -627,10 +610,6 @@ public class Desktop
         System.out.println("Please Try Again");
     }
 }
-
-
-
-
 
 
 
