@@ -4,12 +4,12 @@ public class Desktop
     static String processor=" -",graphicCard=" -",ram=" -",socketTypeP="",socketTypeM="",motherboard="-";
     static int cost[]=new int[4];//It stores the prices of items purchased by the user
     static String spec[][]=new String[4][2];//It stores the name and category of item purchased by the user
-    Processor pr=new Processor();
+    Processor pro=new Processor();
     GraphicCard gc=new GraphicCard();
     RAM ra=new RAM();
     Motherboard mo=new Motherboard();
     Scanner sc=new Scanner(System.in);
-    
+    ElectronicsShop e=new ElectronicsShop(); 
     public static void main()
     {        
         spec[0][0]="Processor:";
@@ -39,7 +39,7 @@ public class Desktop
             d.specs();
             break;
             case 1:
-            d.pr.ma();
+            d.pro.ma();
             break;
             case 2:
             d.gc.ma();
@@ -175,8 +175,7 @@ public class Desktop
                     break;
                     case 2:
                     cost[0]=pr;
-                    Motherboard m=new Motherboard();
-                    m.ma();
+                    mo.ma();
                     break;
                     default:
                     wrongChoice();
@@ -273,7 +272,7 @@ public class Desktop
                 ma();
             }
         }
-
+        
         public void purchase()
         {
             System.out.println("Press 0 to go back or press 1 to purchase it");
@@ -527,8 +526,7 @@ public class Desktop
                     break;
                     case 2:
                     cost[3]=pr;
-                    Processor p=new Processor();
-                    p.ma();  
+                    pro.ma();  
                     break;
                     default:
                     wrongChoice();
@@ -551,7 +549,6 @@ public class Desktop
     public void dispalySpecTable()//This function prints majority of the bill
     {
         System.out.println("Bill");
-        ElectronicsShop e=new ElectronicsShop();
         System.out.print("Date and Time: ");
         e.date();
         int i,j,k=0,l=0;
@@ -575,8 +572,7 @@ public class Desktop
     }
 
     public void bill()//This function prints the remaining bill
-    {
-        ElectronicsShop e=new ElectronicsShop();        
+    {               
         int su=0,i;
         String s1;
         for(i=0;i<4;i++)
@@ -597,8 +593,3 @@ public class Desktop
         System.out.println("Please Try Again");
     }
 }
-
-
-
-
-
