@@ -9,9 +9,9 @@ public class Desktop
     RAM ra=new RAM();
     Motherboard mo=new Motherboard();
     Scanner sc=new Scanner(System.in);
-
+    
     public static void main()
-    {
+    {        
         spec[0][0]="Processor:";
         spec[0][1]=processor;
         spec[1][0]="Graphic Card:";
@@ -20,6 +20,8 @@ public class Desktop
         spec[2][1]=ram;
         spec[3][0]="Motherboard:";
         spec[3][1]=motherboard;
+        Desktop de=new Desktop();
+        de.entry();
     }
 
     public void entry()
@@ -108,51 +110,36 @@ public class Desktop
                 main();
                 break;
                 case 1:
-                i3_8100.display();
-                processor=i3_8100.name;
-                pr=i3_8100.price;
-                socketTypeP=i3_8100.socketType;
-                purchase();
+                i3_8100.info();                
                 break;
                 case 2:
-                i5_8400.display();
-                processor=i5_8400.name;
-                pr=i5_8400.price;
-                socketTypeP=i5_8400.socketType;
-                purchase();
+                i5_8400.info();
                 break;
                 case 3:
-                i7_8700.display();
-                processor=i7_8700.name;
-                pr=i7_8700.price;
-                socketTypeP=i7_8700.socketType;
-                purchase();
+                i7_8700.info();
                 break;
                 case 4:
-                Ryzen_3_1200.display();
-                processor=Ryzen_3_1200.name;
-                pr=Ryzen_3_1200.price;
-                socketTypeP=Ryzen_3_1200.socketType;
-                purchase();
+                Ryzen_3_1200.info();
                 break;
                 case 5:
-                Ryzen_5_1600.display();
-                processor=Ryzen_5_1600.name;
-                pr=Ryzen_5_1600.price;
-                socketTypeP=Ryzen_5_1600.socketType;
-                purchase();
+                Ryzen_5_1600.info();
                 break;
                 case 6:
-                Ryzen_7_1700.display();
-                processor=Ryzen_7_1700.name;
-                pr=Ryzen_7_1700.price;
-                socketTypeP=Ryzen_7_1700.socketType;
-                purchase();
+                Ryzen_7_1700.info();
                 break;
                 default:
                 wrongChoice();
                 ma();
             }
+        }
+        
+        public void info()
+        {
+            this.display();
+            processor=this.name;
+            pr=this.price;
+            socketTypeP=this.socketType;
+            purchase();
         }
 
         public void purchase()
