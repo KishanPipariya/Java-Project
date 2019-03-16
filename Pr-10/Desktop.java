@@ -232,45 +232,35 @@ public class Desktop
             switch(c)
             {
                 case 1:
-                GeForceGtx_950.display();
-                graphicCard=GeForceGtx_950.brand+" "+GeForceGtx_950.name;
-                pr=GeForceGtx_950.price;
-                purchase();
+                GeForceGtx_950.info();
                 break;
                 case 2:
-                GeForceGtx_1050.display();
-                graphicCard=GeForceGtx_1050.brand+" "+GeForceGtx_1050.name;
-                pr=GeForceGtx_1050.price;
-                purchase();
+                GeForceGtx_1050.info();
                 break;
                 case 3:
-                GeForceGtx_1060.display();
-                graphicCard=GeForceGtx_1060.brand+" "+GeForceGtx_1060.name;
-                pr= GeForceGtx_1060.price;
-                purchase();
+                GeForceGtx_1060.info();
                 break;
                 case 4:
-                Radeon_RX_550.display();
-                graphicCard=Radeon_RX_550.brand+" "+Radeon_RX_550.name;
-                pr= Radeon_RX_550.price;
-                purchase();
+                Radeon_RX_550.info();
                 break;
                 case 5:
-                Radeon_RX_560.display();
-                graphicCard=Radeon_RX_560.brand+" "+Radeon_RX_560.name;
-                pr=Radeon_RX_560.price;
-                purchase();
+                Radeon_RX_560.info();
                 break;
                 case 6:
-                Radeon_RX_580.display();
-                graphicCard=Radeon_RX_580.brand+" "+Radeon_RX_580.name;
-                pr=Radeon_RX_580.price;
-                purchase();
+                Radeon_RX_580.info();
                 break;
                 default:
                 wrongChoice();
                 ma();
             }
+        }
+        
+        public void info()
+        {
+            this.display();
+            graphicCard=this.brand+" "+this.name;
+            pr=this.price;
+            purchase();
         }
         
         public void purchase()
@@ -340,41 +330,34 @@ public class Desktop
             switch(c)
             {
                 case 1:
-                Premier.display();
-                ram=Premier.manufacturer+" "+Premier.name;
-                pr=Premier.price;
-                purchase();
+                Premier.info();
                 break;
                 case 2:
-                DLR4GD4_24.display();
-                ram=DLR4GD4_24.manufacturer+" "+DLR4GD4_24.name;
-                pr=DLR4GD4_24.price;
-                purchase();
+                DLR4GD4_24.info();
                 break;
                 case 3:
-                Vengeance_LPX.display();
-                ram=Vengeance_LPX.manufacturer+" "+Vengeance_LPX.name;
-                pr=Vengeance_LPX.price;
-                purchase();
+                Vengeance_LPX.info();
                 break;
                 case 4:
-                Aegis.display();
-                ram=Aegis.manufacturer+" "+Aegis.name;
-                pr=Aegis.price;
-                purchase();
+                Aegis.info();
                 break;
                 case 5:
-                Ripjaws_V.display();
-                ram=Ripjaws_V.manufacturer+" "+Ripjaws_V.name;
-                pr=Ripjaws_V.price;
-                purchase();
+                Ripjaws_V.info();
                 break;
                 default:
                 wrongChoice();
                 ma();
             }
         }
-
+        
+        public void info()
+        {
+            this.display();
+            ram=this.manufacturer+" "+this.name;
+            pr=this.price;
+            purchase();
+        }
+        
         public void purchase()
         {
             System.out.println("Press 0 to go back or Press 1 to purchase it");
@@ -446,53 +429,38 @@ public class Desktop
             switch(c)
             {
                 case 1:
-                ROG.display();
-                motherboard=ROG.manufacturer+" "+ROG.name;
-                pr=ROG.price;
-                socketTypeM=ROG.socketType;
-                purchase();
+                ROG.info();
                 break;
                 case 2:
-                B150M_D3H.display();
-                motherboard=B150M_D3H.manufacturer+" "+B150M_D3H.name;
-                pr=B150M_D3H.price;
-                socketTypeM=B150M_D3H.socketType;
-                purchase();
+                B150M_D3H.info();
                 break;
                 case 3:
-                PRO_VH.display();
-                motherboard=PRO_VH.manufacturer+" "+PRO_VH.name;
-                pr=PRO_VH.price;
-                socketTypeM=PRO_VH.socketType;
-                purchase();
+                PRO_VH.info();
                 break;
                 case 4:
-                Mortar.display();
-                motherboard=Mortar.manufacturer+" "+Mortar.name;
-                pr=Mortar.price;
-                socketTypeM=Mortar.socketType;
-                purchase();
+                Mortar.info();
                 break;
                 case 5:
-                Prime.display();
-                motherboard=Prime.manufacturer+" "+Prime.name;
-                pr=Prime.price;
-                socketTypeM=Prime.socketType;
-                purchase();
+                Prime.info();
                 break;
                 case 6:
-                GamingPro.display();
-                motherboard=GamingPro.manufacturer+" "+GamingPro.name;
-                pr=GamingPro.price;
-                socketTypeM=GamingPro.socketType;
-                purchase();
+                GamingPro.info();
                 break;
                 default:
                 wrongChoice();
                 ma();
             }
         }
-
+        
+        public void info()
+        {
+            this.display();
+            motherboard=this.manufacturer+" "+this.name;
+            pr=this.price;
+            socketTypeM=this.socketType;
+            purchase();
+        }
+        
         public void purchase()
         {
             if(socketTypeM==socketTypeP||socketTypeP=="")//This statement is used to ensure compatibility between processor and motherboard
